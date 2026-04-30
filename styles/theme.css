@@ -1,0 +1,40 @@
+@layer components {
+  .site-container {
+    @apply mx-auto w-[min(calc(100%-1.5rem),72rem)] md:w-[min(calc(100%-2rem),76rem)];
+  }
+
+  .section-pad {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-semibold leading-tight tracking-[-0.04em] md:text-5xl;
+  }
+
+  .panel-card {
+    @apply rounded-[1.75rem] border border-line bg-white/80 shadow-card backdrop-blur;
+  }
+
+  .panel-dark {
+    @apply rounded-[1.75rem] border border-white/10 bg-panel text-white shadow-card;
+    background-image:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 40%),
+      linear-gradient(180deg, #191919 0%, #101010 100%);
+  }
+
+  .eyebrow {
+    @apply inline-flex rounded-full border border-line bg-white/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-smoke;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white shadow-card;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-line bg-white/80 px-5 py-3 text-sm font-semibold text-ink;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center rounded-full bg-whatsapp px-5 py-3 text-sm font-semibold text-white shadow-card;
+  }
+}
