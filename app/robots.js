@@ -1,9 +1,11 @@
+import { getSiteUrl } from "../data/site-data";
+
 export default function robots() {
   return {
     rules: {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "http://localhost:3000/sitemap.xml"
+    sitemap: `${getSiteUrl()}/sitemap.xml`
   };
 }

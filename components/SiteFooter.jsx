@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { business, services, topLocations, locationMap } from "../data/site-data";
+import {
+  business,
+  getMainServiceHref,
+  locationMap,
+  services,
+  topLocations
+} from "../data/site-data";
 
 export function SiteFooter() {
   return (
@@ -23,7 +29,7 @@ export function SiteFooter() {
             <h3 className="font-display text-lg font-semibold">Services</h3>
             <div className="mt-4 grid gap-3 text-sm text-smoke">
               {services.map((service) => (
-                <Link key={service.slug} href={`/${service.slug}`}>
+                <Link key={service.slug} href={getMainServiceHref(service.slug)}>
                   {service.name}
                 </Link>
               ))}
@@ -34,7 +40,7 @@ export function SiteFooter() {
             <h3 className="font-display text-lg font-semibold">Top Areas</h3>
             <div className="mt-4 grid gap-3 text-sm text-smoke">
               {topLocations.map((slug) => (
-                <Link key={slug} href={`/ac-service/${slug}`}>
+                <Link key={slug} href={`/ac-service-${slug}`}>
                   {locationMap[slug].name}
                 </Link>
               ))}
