@@ -1,5 +1,8 @@
 {
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/[service]/page": "app/[service]/page.js",
-  "/[service]/[location]/page": "app/[service]/[location]/page.js"
+  "/[service]/[location]/page": "app/[service]/[location]/page.js",
+  "/[service]/page": "app/[service]/page.js"
 }
