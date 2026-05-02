@@ -1,4 +1,4 @@
-export function SectionTitle({ eyebrow, title, description, dark = false }) {
+﻿export function SectionTitle({ eyebrow, title, description, dark = false }) {
   return (
     <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div className="max-w-3xl">
@@ -13,3 +13,4 @@ export function SectionTitle({ eyebrow, title, description, dark = false }) {
     </div>
   );
 }
+

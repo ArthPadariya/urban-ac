@@ -1,4 +1,7 @@
+﻿import Image from "next/image";
 import Link from "next/link";
+import { RotatingHeroVisual } from "./RotatingHeroVisual";
+import { LocationsMotionStyles } from "./LocationsMotionStyles";
 import {
   business,
   getMainServiceHref,
@@ -6,214 +9,395 @@ import {
   services,
   topLocations
 } from "../data/site-data";
-import { SectionTitle } from "./SectionTitle";
+
+const serviceCardClass =
+  "service-hover-card group relative rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] ease-out hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent active:scale-[0.98]";
+
+const whyCardClass =
+  "group relative overflow-hidden rounded-2xl border border-[#e5e7eb] bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-transparent hover:shadow-[0_18px_38px_rgba(15,23,42,0.1)] active:scale-[0.98]";
+
+const reviewCardClass =
+  "group relative rounded-2xl border border-[#e9edf5] bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(15,23,42,0.12)] active:scale-[0.98]";
+
+const whyChooseUs = [
+  {
+    title: "Fast local AC service in Vadodara",
+    text: "Our area-based routing helps technicians reach locations like Sama, Alkapuri, Karelibaug, and Gotri quickly for faster AC service response."
+  },
+  {
+    title: "Same-day AC repair support",
+    text: "We offer same-day AC repair in Vadodara when slots are available, especially for urgent cooling issues and breakdowns."
+  },
+  {
+    title: "Expert AC technicians",
+    text: "Our team handles split AC, window AC, and inverter AC units, including repair, installation, cleaning, gas filling, and PCB faults."
+  },
+  {
+    title: "Doorstep AC service",
+    text: "Get complete AC service at home or office without moving your unit, including inspection, repair, and maintenance support."
+  },
+  {
+    title: "Transparent AC service process",
+    text: "We explain the AC issue, required service, and expected work clearly before starting, ensuring no confusion."
+  },
+  {
+    title: "Coverage across 20+ areas",
+    text: "Urban AC serves multiple areas in Vadodara with dedicated pages, local FAQs, and easy booking options for faster service."
+  }
+];
+
+const reviews = [
+  {
+    title: "Quick service in Vasna",
+    name: "Riya",
+    location: "Vasna",
+    text: "Booked AC service in the morning and the technician reached our society the same day with a clear explanation of the work."
+  },
+  {
+    title: "Neat split AC repair",
+    name: "Amit",
+    location: "Akota",
+    text: "Our split AC stopped cooling properly and Urban AC diagnosed the issue quickly without making the process confusing."
+  },
+  {
+    title: "Helpful cleaning support",
+    name: "Nidhi",
+    location: "Harni",
+    text: "The AC cleaning service removed the smell and improved airflow noticeably. The visit felt organized and professional."
+  }
+];
+
+function SectionHeader({ eyebrow, title, description, centered = false }) {
+  return (
+    <div className={centered ? "mb-9 text-center md:mb-10" : "mb-9 md:mb-10"}>
+      <span className="inline-flex items-center gap-2 rounded-full border border-[#dfe7f5] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
+        {eyebrow}
+      </span>
+      <h2 className="mb-4 mt-4 text-3xl font-bold tracking-tight text-[#0B0B0B] md:text-4xl">
+        {title}
+      </h2>
+      <p
+        className={`text-[15px] leading-relaxed text-[#555] md:text-base ${
+          centered ? "mx-auto max-w-2xl" : "max-w-2xl"
+        }`}
+      >
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  );
+}
+
+function PinIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2.75a6.25 6.25 0 0 0-6.25 6.25c0 4.4 5.04 10.18 5.25 10.42a1.33 1.33 0 0 0 2 0c.21-.24 5.25-6.02 5.25-10.42A6.25 6.25 0 0 0 12 2.75Zm0 8.5A2.25 2.25 0 1 1 12 6.75a2.25 2.25 0 0 1 0 4.5Z" />
+    </svg>
+  );
+}
 
 export function HomePage() {
   return (
-    <main>
-      <section className="section-pad">
-        <div className="site-container grid items-center gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <span className="eyebrow">Urban AC Vadodara</span>
-            <h1 className="mt-4 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.06em] md:text-7xl">
-              Expert AC Service, Repair & Installation in Vadodara
+    <main className="bg-white text-[#111] [font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif]">
+      <LocationsMotionStyles />
+
+      <section className="overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#F4F8FF_62%,#FFFFFF_100%)] py-16 md:py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1.02fr] lg:gap-12">
+          <div className="relative z-10 motion-safe:animate-[locationsFadeUp_0.7s_ease-out_both]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#dfe7f5] bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)]">
+              Urban AC Vadodara
+            </span>
+            <h1 className="mb-6 mt-5 text-4xl font-bold leading-[1.02] tracking-tight text-[#0B0B0B] md:text-5xl lg:text-6xl">
+              AC Service, Repair & Installation at Your Doorstep
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-smoke md:text-lg">
-              {business.name} provides fast doorstep AC repair, AC service, AC installation,
-              gas filling, AMC support, PCB repair, and deep cleaning across key areas of Vadodara.
-              Book by call or WhatsApp for local technicians and same-day slots when available.
+            <p className="mb-6 max-w-xl text-[16px] leading-relaxed text-[#555] md:text-[17px]">
+              {business.name} provides professional AC service, repair, installation, gas filling, PCB repair, AMC maintenance, and deep AC cleaning across Vadodara. Our experienced technicians handle split AC, window AC, and inverter AC units with fast diagnosis and reliable solutions.
+            
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={business.phoneHref} className="btn-primary">
-                Call for Fast Booking
-              </a>
-              <a href={business.whatsappHref} className="btn-whatsapp">
-                WhatsApp Urban AC
+            
+            <div className="mb-6 flex flex-wrap gap-3">
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center justify-center rounded-xl bg-[#0B0B0B] px-6 py-3 text-sm font-bold text-white shadow-[0_14px_28px_rgba(11,11,11,0.14)] transition-all duration-300 hover:scale-[1.03] hover:bg-black hover:shadow-[0_18px_34px_rgba(11,11,11,0.18)] active:scale-[0.97]"
+              >
+                Call Now
+              </Link>
+              <a
+                href={business.whatsappHref}
+                className="inline-flex items-center justify-center rounded-xl bg-[#22c55e] px-6 py-3 text-sm font-bold text-white shadow-[0_14px_28px_rgba(34,197,94,0.18)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] hover:shadow-[0_18px_34px_rgba(34,197,94,0.24)] active:scale-[0.97]"
+              >
+                WhatsApp
               </a>
             </div>
-            <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium text-smoke">
-              <span>20 major service areas covered</span>
-              <span>8 high-intent service routes</span>
-              <span>Doorstep support for split and window AC</span>
+            <div className="flex flex-wrap items-center gap-2.5">
+              {[" Same-day AC service in Vadodara", "Expert Split & Window AC Technicians", "Fast Cooling Issue Diagnosis & Repair", "Service coverage across 20+ areas"].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[#dfe7f5] bg-white px-4 py-2 text-sm font-medium text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)]"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
 
-          <aside className="panel-dark p-8">
-            <span className="eyebrow border-white/10 bg-white/5 text-white/70">Why Customers Choose Us</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-[-0.04em] md:text-5xl">
-              Local coverage, cleaner pages, faster booking.
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-white/75 md:text-base">
-              The site is built around real service intent: city pages for core services, local pages
-              for high-converting area keywords, clear internal linking, and mobile-first booking CTAs.
-            </p>
-            <div className="mt-8 grid gap-3 md:grid-cols-2">
-              {[
-                ["20", "coverage areas"],
-                ["8", "service categories"],
-                ["30-60 min", "response goal"],
-                ["Call + WhatsApp", "booking options"]
-              ].map(([value, label]) => (
-                <div key={label} className="rounded-3xl border border-white/10 bg-white/5 p-4">
-                  <strong className="block font-display text-3xl font-semibold tracking-[-0.04em]">
-                    {value}
-                  </strong>
-                  <span className="text-sm text-white/70">{label}</span>
-                </div>
-              ))}
-            </div>
-          </aside>
+          <div className="motion-safe:animate-[locationsFadeUp_0.82s_ease-out_both] [animation-delay:120ms]">
+            <RotatingHeroVisual />
+          </div>
         </div>
       </section>
 
-      <section id="services" className="section-pad">
-        <div className="site-container">
-          <SectionTitle
-            eyebrow="Main Services"
-            title="Complete AC support for homes, offices, and commercial spaces."
-            description="Each service has a main city page and localized area pages, so users can move from broad service intent to neighborhood-level booking quickly."
+      <section id="why-us" className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeader
+            eyebrow="Why Choose Us"
+            title="Clear communication, quick response, and practical AC support."
+            description="We keep the process simple so customers can understand the service, the timing, and the likely solution before the work begins."
           />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((service) => (
-              <article key={service.slug} className="panel-card flex flex-col gap-4 p-6">
-                <h3 className="font-display text-2xl font-semibold tracking-[-0.03em]">{service.name}</h3>
-                <p className="text-sm leading-7 text-smoke">{service.shortDescription}</p>
-                <ul className="space-y-2 text-sm text-smoke">
-                  {service.types.slice(0, 3).map((type) => (
-                    <li
-                      key={type}
-                      className="relative pl-4 before:absolute before:mt-2 before:h-1.5 before:w-1.5 before:rounded-full before:bg-ink"
-                    >
-                      {type}
-                    </li>
-                  ))}
-                </ul>
-                <Link href={getMainServiceHref(service.slug)} className="mt-auto text-sm font-semibold">
-                  Explore {service.name}
-                </Link>
+          <div className="grid gap-4 md:grid-cols-2 lg:gap-5">
+            {whyChooseUs.map((item, index) => (
+              <article
+                key={item.title}
+                className={`${whyCardClass} motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]`}
+                style={{ animationDelay: `${index * 70}ms` }}
+              >
+                <div
+                  className={`absolute inset-0 opacity-0 transition-all duration-300 group-hover:opacity-100 ${
+                    [
+                      "bg-[#eef6ff]",
+                      "bg-[#f0fdf4]",
+                      "bg-[#fff7ed]",
+                      "bg-[#f5f3ff]",
+                      "bg-[#eef6ff]",
+                      "bg-[#f0fdf4]"
+                    ][index]
+                  }`}
+                />
+                <div className="relative flex h-full flex-col">
+                  <span className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#dbe6f6] bg-white text-sm font-bold text-[#0B0B0B] transition-all duration-300 group-hover:border-[#cfdcf2] group-hover:bg-white group-hover:text-[#111]">
+                    0{index + 1}
+                  </span>
+                  <h3 className="mb-2 text-lg font-extrabold tracking-tight text-[#0B0B0B] transition-colors duration-300 group-hover:text-[#111]">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-6 text-[#555] transition-colors duration-300 group-hover:text-[#111]">
+                    {item.text}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="areas" className="section-pad bg-ink">
-        <div className="site-container">
-          <SectionTitle
-            eyebrow="Areas We Serve"
-            title="Coverage across Vadodara's busy residential and commercial pockets."
-            description="Top location pages link directly from the homepage, while every service page expands into deeper local routes with nearby-area linking."
-            dark
+      <section id="services" className="bg-[#EEF4FF] py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeader
+            eyebrow="Services"
+            title="Professional AC services across Vadodara."
+            description="Choose the service you need, then move into the main city page or local area route for quicker booking."
           />
-          <div className="grid gap-3 md:grid-cols-3 xl:grid-cols-6">
-            {topLocations.map((slug) => {
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {services.map((service, index) => (
+              <article
+                key={service.slug}
+                className={`${serviceCardClass} motion-safe:animate-[locationsFadeUp_0.74s_ease-out_both]`}
+                style={{ animationDelay: `${index * 75}ms` }}
+              >
+                  <div className="service-hover-card-overlay absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative flex h-full flex-col gap-4">
+                  <span className="service-hover-badge inline-flex w-fit rounded-full border border-[#dfe7f5] bg-[#F4F8FF] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#555]">
+                    Urban AC Service
+                  </span>
+                  <h3 className="text-2xl font-bold tracking-tight text-[#111] transition-colors duration-300">
+                    {service.name}
+                  </h3>
+                  <p className="text-sm leading-7 text-[#555]">{service.shortDescription}</p>
+                  <ul className="space-y-2">
+                    {service.types.slice(0, 3).map((type) => (
+                      <li key={type} className="flex items-start gap-2 text-sm leading-relaxed text-[#666] transition-colors duration-300">
+                        <span className="service-hover-dot mt-2 h-1.5 w-1.5 rounded-full bg-[#0B0B0B]" />
+                        <span>{type}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href={getMainServiceHref(service.slug)} className="mt-auto">
+                    <div className="flex items-center gap-1 text-sm font-bold text-[#0B0B0B] transition-all duration-300 group-hover:gap-2">
+                      <span>Explore {service.name}</span>
+                      <svg
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="areas" className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeader
+            eyebrow="Areas We Serve"
+            title="AC Service Coverage Across Vadodara Areas & Nearby Locations"
+            description="Start with the most searched local routes or move through the city pages to find the right area faster."
+          />
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {topLocations.map((slug, index) => {
               const location = locations.find((item) => item.slug === slug);
               return (
                 <Link
                   key={slug}
                   href={`/ac-service-${slug}`}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-3 text-center text-sm font-semibold text-white"
+                  className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-3 py-2.5 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]"
+                  style={{ animationDelay: `${index * 45}ms` }}
                 >
-                  {location.name}
+                  <span className="flex items-center gap-1">
+                    📍 {location.name}
+                  </span>
                 </Link>
               );
             })}
+            {locations
+              .filter((location) => !topLocations.includes(location.slug))
+              .map((location, index) => (
+                <Link
+                  key={location.slug}
+                  href={`/ac-service-${location.slug}`}
+                  className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-3 py-2.5 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]"
+                  style={{ animationDelay: `${(index + topLocations.length) * 45}ms` }}
+                >
+                  <span className="flex items-center gap-1">
+                    📍 {location.name}
+                  </span>
+                </Link>
+              ))}
           </div>
         </div>
       </section>
 
-      <section className="section-pad">
-        <div className="site-container">
-          <SectionTitle
-            eyebrow="Why Urban AC"
-            title="Built for readability, local intent, and high-conversion service pages."
-            description="The architecture uses one clean slug route, on-demand ISR for long-tail pages, and stronger localized copy instead of copy-paste SEO blocks."
-          />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {[
-              ["Single route architecture", "One slug route powers city pages and location pages without route duplication or folder confusion."],
-              ["Localized service copy", "Every page adapts service content with nearby landmarks, response windows, and natural area references."],
-              ["Useful internal links", "Homepage links services and areas, service pages link all locations, and local pages connect nearby areas and related services."],
-              ["Mobile-first booking flow", "Sticky header, floating CTAs, short sections, and strong contrast make the site easier to use on phones."],
-              ["ISR-friendly setup", "Only high-priority pages are prerendered; the rest render on demand and revalidate to reduce build load."],
-              ["Conversion-focused structure", "Each page includes service details, trust points, FAQs, and repeated Call + WhatsApp CTAs."]
-            ].map(([title, text]) => (
-              <article key={title} className="panel-card p-6">
-                <h3 className="font-display text-xl font-semibold tracking-[-0.03em]">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-smoke">{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="process" className="section-pad bg-ink">
-        <div className="site-container">
-          <SectionTitle
-            eyebrow="Simple Process"
-            title="A short booking flow that works across every service page."
-            description="The process remains consistent whether someone lands on a city page or a local long-tail page."
-            dark
-          />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {[
-              ["1", "Call or WhatsApp", "Share the area, AC type, and whether you need service, repair, installation, or cleaning."],
-              ["2", "Schedule Visit", "We confirm the nearest available slot based on the service needed and local response coverage."],
-              ["3", "Inspection & Work", "The technician checks the AC, explains the scope, and completes the required service support."],
-              ["4", "Testing & Close", "Cooling, airflow, and final performance are checked before the job is wrapped up."]
-            ].map(([num, title, text]) => (
-              <article key={num} className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 text-white">
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-white text-sm font-bold text-ink">
-                  {num}
-                </div>
-                <h3 className="mt-4 font-display text-xl font-semibold tracking-[-0.03em]">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/70">{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="reviews" className="section-pad">
-        <div className="site-container">
-          <SectionTitle
-            eyebrow="Customer Stories"
-            title="Short trust signals placed where users expect them."
-            description="Service websites convert better when reviews are clear, local, and easy to scan."
-          />
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              ["Quick Vasna support", "Booked AC service for our Vasna apartment and the technician arrived the same day with a clear explanation of the work."],
-              ["Neat split AC installation", "The installation team handled piping, drainage, and testing cleanly, which made the setup feel much more reliable."],
-              ["Helpful AMC follow-up", "Urban AC organized maintenance for multiple office units and kept the service schedule easy to manage."]
-            ].map(([title, text]) => (
-              <article key={title} className="panel-card p-6">
-                <h3 className="font-display text-xl font-semibold tracking-[-0.03em]">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-smoke">"{text}"</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-24">
-        <div className="site-container">
-          <div className="panel-dark p-8 md:p-10">
-            <span className="eyebrow border-white/10 bg-white/5 text-white/70">Book Today</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.05em] md:text-5xl">
-              Need AC service in Vadodara today?
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/70 md:text-base">
-              Call now or start on WhatsApp to book AC repair, service, installation, gas filling,
-              AMC support, PCB repair, split AC repair, or deep cleaning with {business.name}.
+      <section id="about" className="bg-[#F4F8FF] py-16 md:py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+          <div className="motion-safe:animate-[locationsFadeUp_0.75s_ease-out_both]">
+            <SectionHeader
+              eyebrow="Expert Care"
+              title="Professional AC Service, Repair & Installation in Vadodara"
+              description="Every booking is aligned with your AC condition and your service location, allowing faster response across key areas of Vadodara."
+            />
+            <p className="mb-4 max-w-2xl text-sm leading-7 text-[#555] md:text-base">
+              We offer professional AC service in Vadodara covering repair, servicing, installation, gas filling, PCB repair, and complete cleaning solutions for both split and window AC units. Our technicians focus on accurate diagnosis, efficient work, and long-lasting cooling performance.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={business.whatsappHref} className="btn-whatsapp">
-                WhatsApp Booking
-              </a>
-              <a href={business.phoneHref} className="btn-secondary border-white/10 bg-white/5 text-white">
-                Call {business.phoneDisplay}
-              </a>
+            <p className="max-w-2xl text-sm leading-7 text-[#555] md:text-base">
+              Looking for AC service near me in Vadodara? Our structured service pages and local area coverage make it simple to choose the right service and book directly for your neighborhood without confusion.
+            </p>
+          </div>
+
+          <div className="motion-safe:animate-[locationsFadeUp_0.84s_ease-out_both] [animation-delay:120ms]">
+            <div className="group relative overflow-hidden rounded-[28px] border border-[#dfe7f5] bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.12)]">
+              <div className="pointer-events-none absolute -right-14 top-0 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.16),transparent_70%)]" />
+              <div className="pointer-events-none absolute -left-6 bottom-0 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(34,197,94,0.12),transparent_72%)]" />
+              <Image
+                src="/home-tech-expert.jpeg"
+                alt="Urban AC service in Vadodara"
+                width={474}
+                height={560}
+                className="relative mx-auto h-auto max-h-[520px] w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeader
+            eyebrow="Reviews"
+            title="Customer Reviews for AC Service & Repair in Vadoda"
+            description="Short, readable reviews help users understand the service experience before they book."
+          />
+          <div className="grid gap-5 md:grid-cols-3">
+            {reviews.map((review, index) => (
+              <article
+                key={review.title}
+                className={`${reviewCardClass} motion-safe:animate-[locationsFadeUp_0.76s_ease-out_both]`}
+                style={{ animationDelay: `${index * 80}ms` }}
+              >
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <div className="flex gap-1 text-[#16a34a]">
+                    {Array.from({ length: 5 }).map((_, starIndex) => (
+                      <svg key={starIndex} width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="rounded-full border border-[#dff1e7] bg-[#f3fbf6] px-3 py-1 text-[11px] font-semibold text-[#15803d]">
+                    {review.title}
+                  </span>
+                </div>
+                <p className="mb-8 text-[14px] leading-7 tracking-[-0.01em] text-[#303030]">
+                  "{review.text}"
+                </p>
+                <div className="flex items-center gap-4 border-t border-[#edf2f7] pt-4">
+                  <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#0B0B0B] text-[24px] font-extrabold text-white">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="text-[15px] font-extrabold text-[#0B0B0B]">{review.name}</div>
+                    <div className="text-[13px] text-[#8f98a5]">{review.location}, Vadodara</div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 overflow-hidden rounded-2xl bg-[linear-gradient(135deg,#0a0a0a_0%,#111827_60%,#0f1a12_100%)] shadow-[0_24px_70px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_32px_80px_rgba(0,0,0,0.26)]">
+            <div className="flex flex-col items-center justify-between gap-8 px-6 py-8 md:flex-row md:py-10">
+              <div className="max-w-xl">
+                <span className="mb-3 block text-[11px] font-bold uppercase tracking-[0.14em] text-white/45">
+                  Book Today
+                </span>
+                <h3 className="mb-3 text-3xl font-bold tracking-tight text-white">
+                  Ready to book AC service in Vadodara?
+                </h3>
+                <p className="max-w-2xl text-sm leading-7 text-white/70 md:text-base">
+                  Call or WhatsApp now for faster support, clear updates, and the right local service route for your area.
+                </p>
+              </div>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/contact-us"
+                  className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#0B0B0B] transition-all duration-300 hover:scale-[1.03] hover:bg-[#f5f5f5] active:scale-[0.97]"
+                >
+                  Call Now
+                </Link>
+                <a
+                  href={business.whatsappHref}
+                  className="inline-flex items-center justify-center rounded-xl bg-[#22c55e] px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] active:scale-[0.97]"
+                >
+                  WhatsApp
+                </a>
+              </div>
+              <img
+                src="/home-cta-1.png"
+                alt="AC technician"
+                className="w-[180px] max-h-[220px] object-contain md:w-[220px]"
+              />
             </div>
           </div>
         </div>

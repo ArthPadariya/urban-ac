@@ -1,0 +1,80 @@
+
+> urban-ac-next@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3000
+   - Network:      http://172.20.10.3:3000
+
+ ✓ Starting...
+ ✓ Ready in 6.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 8.4s (667 modules)
+ GET / 200 in 9988ms
+ ○ Compiling /faqs ...
+ ✓ Compiled /faqs in 1154ms (675 modules)
+ GET /faqs 200 in 1800ms
+ ○ Compiling /[slug] ...
+ ✓ Compiled /[slug] in 570ms (682 modules)
+ GET /ac-installation-vadodara 200 in 2834ms
+ ○ Compiling /ac-repair-sama ...
+ ✓ Compiled /ac-repair-sama in 880ms (690 modules)
+ GET /ac-repair-sama 200 in 1495ms
+ GET /ac-installation-sama 200 in 258ms
+ GET /faqs 200 in 210ms
+ GET /ac-repair-vadodara 200 in 335ms
+ GET /ac-cleaning-service-vadodara 200 in 301ms
+ GET /ac-service-vadodara 200 in 384ms
+ GET /ac-gas-filling-vadodara 200 in 216ms
+ GET /ac-maintenance-amc-vadodara 200 in 255ms
+ GET /ac-split-ac-repair-vadodara 404 in 136ms
+ GET /ac-pcb-repair-vadodara 200 in 204ms
+ GET /ac-installation-vadodara 200 in 208ms
+ GET /ac-repair-sama 200 in 333ms
+ ✓ Compiled /ac-cleaning-service-sama in 356ms (698 modules)
+ GET /ac-cleaning-service-sama 200 in 897ms
+ ✓ Compiled /ac-service-sama in 445ms (706 modules)
+ GET /ac-service-sama 200 in 806ms
+ ✓ Compiled /ac-gas-filling-sama in 354ms (714 modules)
+ GET /ac-gas-filling-sama 200 in 773ms
+ ✓ Compiled /ac-maintenance-amc-sama in 363ms (722 modules)
+ GET /ac-maintenance-amc-sama 200 in 726ms
+ GET /ac-split-ac-repair-sama 404 in 173ms
+ ○ Compiling /ac-pcb-repair-sama ...
+ ✓ Compiled /ac-pcb-repair-sama in 647ms (730 modules)
+ GET /ac-pcb-repair-sama 200 in 1049ms
+ GET /ac-installation-sama 200 in 325ms
+ ✓ Compiled in 1908ms (724 modules)
+ ✓ Compiled in 1754ms (713 modules)
+ GET /ac-split-ac-repair-vadodara 200 in 658ms
+ GET /ac-split-ac-repair-sama 200 in 242ms
+ ○ Compiling /split-ac-repair-sama ...
+ ✓ Compiled /split-ac-repair-sama in 847ms (664 modules)
+ GET /split-ac-repair-sama 200 in 1357ms
+ ✓ Compiled / in 249ms (430 modules)
+ GET / 200 in 975ms
+ ✓ Compiled /faqs in 247ms (436 modules)
+ GET /faqs 200 in 637ms
+ GET /ac-repair-vadodara 200 in 250ms
+ GET /ac-cleaning-service-vadodara 200 in 218ms
+ GET /ac-service-vadodara 200 in 208ms
+ GET /ac-gas-filling-vadodara 200 in 231ms
+ GET /ac-maintenance-amc-vadodara 200 in 216ms
+ GET /ac-split-ac-repair-vadodara 200 in 213ms
+ GET /ac-pcb-repair-vadodara 200 in 217ms
+ GET /ac-installation-vadodara 200 in 219ms
+ ○ Compiling /ac-repair-sama ...
+ ✓ Compiled /ac-repair-sama in 512ms (442 modules)
+ GET /ac-repair-sama 200 in 1050ms
+ ✓ Compiled /ac-cleaning-service-sama in 206ms (448 modules)
+ GET /ac-cleaning-service-sama 200 in 570ms
+ ✓ Compiled /ac-service-sama in 229ms (454 modules)
+ GET /ac-service-sama 200 in 614ms
+ ✓ Compiled /ac-gas-filling-sama in 263ms (460 modules)
+ GET /ac-gas-filling-sama 200 in 681ms
+ ✓ Compiled /ac-maintenance-amc-sama in 253ms (466 modules)
+ GET /ac-maintenance-amc-sama 200 in 652ms
+ GET /ac-split-ac-repair-sama 200 in 281ms
+ ✓ Compiled /ac-pcb-repair-sama in 273ms (472 modules)
+ GET /ac-pcb-repair-sama 200 in 653ms
+ GET /ac-installation-sama 200 in 366ms

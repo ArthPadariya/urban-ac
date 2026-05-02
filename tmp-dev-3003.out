@@ -1,0 +1,10 @@
+
+> urban-ac-next@1.0.0 dev
+> next dev --port 3003
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3003
+   - Network:      http://172.20.10.3:3003
+
+ ✓ Starting...
+ ✓ Ready in 147.9s

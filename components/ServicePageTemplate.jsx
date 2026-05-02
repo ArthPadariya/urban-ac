@@ -5,12 +5,113 @@ import {
   getCityFaqs,
   getCityIntro,
   getCtaContent,
-  getMainServiceHref,
   getRelatedServices,
   getTrustHighlights,
   locations
 } from "../data/site-data";
-import { SectionTitle } from "./SectionTitle";
+
+function Chip({ children, dark = false }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] ${
+        dark
+          ? "border-[#22c55e]/30 bg-[#22c55e]/12 text-[#22c55e]"
+          : "border-[#e5e5e5] bg-[#f5f5f5] text-[#555]"
+      }`}
+    >
+      {children}
+    </span>
+  );
+}
+
+function SectionHeader({ chip, title, description, centered = false }) {
+  return (
+    <div className={centered ? "mb-14 text-center" : "mb-14"}>
+      <Chip>{chip}</Chip>
+      <h2 className="mb-3 mt-3 text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold leading-[1.2] tracking-[-0.025em] text-[#111]">
+        {title}
+      </h2>
+      {description ? (
+        <p className={`text-[15px] text-[#888] ${centered ? "mx-auto max-w-[520px]" : "max-w-[520px]"}`}>{description}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function TypeCard({ type }) {
+  return (
+    <div className="service-hover-card group relative cursor-pointer overflow-hidden rounded-[20px] border border-[#ebebeb] bg-white px-7 py-8 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-[0_18px_36px_rgba(0,0,0,0.08)] active:scale-[0.98] active:bg-[#f3f4f6]">
+      <div className="service-hover-card-overlay absolute inset-0 rounded-[20px] bg-[#ffffff] opacity-100 transition-opacity duration-300 group-hover:opacity-[0.08]" />
+      <div className="service-hover-card-overlay absolute inset-[1px] rounded-[19px] bg-[#f8fafc] opacity-60 transition-opacity duration-300 group-hover:opacity-0" />
+      <div className="relative text-[17px] font-extrabold text-[#111] transition-colors duration-300 group-hover:text-white">
+        {type}
+      </div>
+    </div>
+  );
+}
+
+function FeatureCard({ item }) {
+  return (
+    <div className="group relative flex items-start gap-[18px] overflow-hidden rounded-[18px] border border-[#eee] bg-[#f8fafc] px-7 py-6 transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]">
+      <div className="absolute inset-0 bg-[#f0fdf4] opacity-0 transition-all duration-300 group-hover:opacity-100" />
+      <div className="relative flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-[14px] border-2 border-[#ebebeb] bg-white text-[18px] font-extrabold text-[#111] transition-all duration-300 group-hover:border-[#111] group-hover:bg-[#111] group-hover:text-white">
+        {item.title.charAt(0)}
+      </div>
+      <div className="relative">
+        <div className="mb-1.5 text-base font-extrabold text-[#111]">{item.title}</div>
+        <div className="text-[13px] leading-[1.7] text-[#777]">{item.text}</div>
+      </div>
+    </div>
+  );
+}
+
+function AreaPill({ href, label }) {
+  return (
+    <Link
+      href={href}
+      className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border-[1.5px] border-[#ddd] bg-white px-3 py-2.5 text-center text-[13px] font-semibold text-[#555] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#111] hover:bg-[#111] hover:text-white hover:shadow-[0_12px_24px_rgba(17,17,17,0.10)] active:scale-[0.98] active:bg-[#111] active:text-white"
+    >
+      <span className="flex items-center gap-1">{"\uD83D\uDCCD"} {label}</span>
+    </Link>
+  );
+}
+
+function RelatedServiceCard({ related }) {
+  return (
+    <div className="group rounded-2xl border border-[#eee] bg-white p-7 shadow-[0_8px_25px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-transparent hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)]">
+      <Link href={related.href} className="text-2xl font-extrabold tracking-[-0.03em] text-[#111] transition-colors duration-300 group-hover:text-[#16a34a]">
+        {related.name}
+      </Link>
+      <p className="mt-3 text-sm leading-7 text-[#666]">{related.shortDescription}</p>
+    </div>
+  );
+}
+
+function ProcessCard({ num, title, text }) {
+  return (
+    <div className="group relative overflow-hidden rounded-2xl border border-[#eee] bg-white px-6 py-7 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#22c55e]/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+      <div className="absolute inset-0 rounded-2xl bg-[#f0fdf4] opacity-0 transition-all duration-300 group-hover:opacity-30" />
+      <div className="relative z-10 mb-3 flex items-center gap-3">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f1f5f9] text-[14px] font-semibold text-[#111] transition-all duration-300 group-hover:bg-[#22c55e] group-hover:text-white">
+          {num}
+        </div>
+        <div className="text-base font-extrabold text-[#111]">{title}</div>
+      </div>
+      <div className="relative z-10 text-[13px] leading-[1.7] text-[#888]">{text}</div>
+    </div>
+  );
+}
+
+function FaqRow({ faq }) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-[#e5e5e5] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#22c55e] hover:bg-[#f0fdf4] hover:shadow-sm">
+      <div className="px-6 py-5">
+        <h3 className="text-[15px] font-bold leading-[1.5] text-[#111]">{faq.question}</h3>
+        <p className="mt-4 text-sm leading-[1.8] text-[#555]">{faq.answer}</p>
+      </div>
+    </div>
+  );
+}
 
 export function ServicePageTemplate({ service }) {
   const intro = getCityIntro(service);
@@ -21,180 +122,182 @@ export function ServicePageTemplate({ service }) {
   const cta = getCtaContent(service);
 
   return (
-    <main className="section-pad">
-      <div className="site-container grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
-        <div className="space-y-6">
-          <section className="panel-dark p-8 md:p-10">
-            <span className="eyebrow border-white/10 bg-white/5 text-white/70">Main Service Page</span>
-            <h1 className="mt-4 font-display text-4xl font-semibold tracking-[-0.06em] md:text-6xl">
-              {service.name} in {business.city}
-            </h1>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-white/75 md:text-base">{intro}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={business.whatsappHref} className="btn-whatsapp">
-                Book on WhatsApp
-              </a>
-              <a href={business.phoneHref} className="btn-secondary border-white/10 bg-white/5 text-white">
-                Call {business.phoneDisplay}
-              </a>
-            </div>
-          </section>
+    <main className="bg-white text-[#111] [font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif]">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#0a0a0a_0%,#111827_60%,#0f1a12_100%)] py-10 md:py-12">
+        <div className="pointer-events-none absolute -right-20 -top-16 h-[500px] w-[500px] rounded-full [background:radial-gradient(circle,rgba(34,197,94,0.18)_0%,transparent_70%)]" />
+        <div className="pointer-events-none absolute -left-[100px] bottom-0 h-[400px] w-[400px] rounded-full [background:radial-gradient(circle,rgba(99,102,241,0.12)_0%,transparent_70%)]" />
 
-          <section className="panel-card p-6 md:p-8">
-            <SectionTitle
-              eyebrow="Service Details"
-              title={`How ${service.name} works in ${business.city}`}
-              description="This city page explains the service scope, the AC issues it addresses, and why users move from this hub into local coverage pages."
-            />
-            <div className="space-y-4 text-sm leading-7 text-smoke md:text-base">
-              {contentBlocks.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel-card p-6 md:p-8">
-            <SectionTitle
-              eyebrow="Types Covered"
-              title={`Types of ${service.name}`}
-              description="Every service page includes AC variants and use cases so the content stays more useful than a thin keyword page."
-            />
-            <div className="grid gap-3 md:grid-cols-2">
-              {service.types.map((type) => (
-                <div key={type} className="rounded-3xl border border-line bg-paper px-4 py-3 text-sm font-medium">
-                  {type}
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel-card p-6 md:p-8">
-            <SectionTitle
-              eyebrow="Why Choose Us"
-              title={`Why customers choose ${business.name} for ${service.name}`}
-            />
-            <div className="grid gap-4 md:grid-cols-3">
-              {trustHighlights.map((item) => (
-                <article key={item.title} className="rounded-[1.5rem] border border-line bg-paper p-5">
-                  <h3 className="font-display text-xl font-semibold tracking-[-0.03em]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-smoke">{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel-card p-6 md:p-8">
-            <SectionTitle
-              eyebrow="Areas Covered"
-              title={`${service.name} in top areas of ${business.city}`}
-              description="This main service page links into every local area route for strong internal linking and easier user navigation."
-            />
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {locations.map((location) => (
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
+            <div>
+              <Chip dark>Main Service Page</Chip>
+              <h1 className="mb-6 mt-5 text-[clamp(2.6rem,5.5vw,4.2rem)] font-black leading-[1.06] tracking-[-0.03em] text-white">
+                {service.name} in {business.city}
+              </h1>
+              <p className="max-w-3xl text-[17px] leading-[1.75] text-white/60">{intro}</p>
+              <div className="mt-9 flex flex-wrap gap-3">
                 <Link
-                  key={location.slug}
-                  href={`/${service.slug}-${location.slug}`}
-                  className="panel-card p-5"
+                  href="/contact-us"
+                  className="inline-flex items-center gap-2 rounded-[14px] bg-white px-7 py-3.5 text-[15px] font-bold text-[#111] shadow-[0_4px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(255,255,255,0.2)] active:scale-[0.98] active:bg-[#f3f4f6]"
                 >
-                  <h3 className="font-display text-xl font-semibold tracking-[-0.03em]">
-                    {service.name} in {location.name}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-smoke">
-                    Local support near {location.landmark} with an expected response window of {location.responseTime}.
-                  </p>
+                  Call Now
                 </Link>
-              ))}
+                <a
+                  href={business.whatsappHref}
+                  className="inline-flex items-center gap-2 rounded-[14px] border-[1.5px] border-[#22c55e]/40 bg-[#22c55e]/15 px-7 py-3.5 text-[15px] font-bold text-[#22c55e] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#22c55e] hover:text-white active:scale-[0.98] active:bg-[#16a34a] active:text-white"
+                >
+                  WhatsApp
+                </a>
+              </div>
             </div>
-          </section>
 
-          <section className="panel-card p-6 md:p-8">
-            <SectionTitle
-              eyebrow="Related Services"
-              title="Explore related AC services"
-              description="Service pages connect to relevant city-level routes so users can compare broader support options."
-            />
-            <div className="grid gap-4 md:grid-cols-3">
-              {relatedServices.map((related) => (
-                <Link key={related.slug} href={related.href} className="panel-card p-5">
-                  <h3 className="font-display text-xl font-semibold tracking-[-0.03em]">{related.name}</h3>
-                  <p className="mt-3 text-sm leading-7 text-smoke">{related.shortDescription}</p>
-                </Link>
-              ))}
+            <div className="self-end rounded-[24px] border border-white/10 bg-white/6 p-6 backdrop-blur-sm">
+              <p className="text-sm font-medium text-white/70">Response Goal</p>
+              <p className="mt-2 text-[clamp(2.1rem,4vw,2.8rem)] font-extrabold tracking-[-0.04em] text-white">30-60 min</p>
+              <p className="mt-3 text-sm leading-7 text-white/60">
+                Across major service pockets in Vadodara, based on route load and availability.
+              </p>
             </div>
-          </section>
-
-          <section className="panel-card p-6 md:p-8" id="process">
-            <SectionTitle
-              eyebrow="How It Works"
-              title="Simple 4-step booking"
-              description="The same process carries through every city route and local route."
-            />
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {[
-                ["1", "Call or WhatsApp", "Tell us the AC type, issue, and preferred area."],
-                ["2", "Schedule Visit", "We confirm a practical slot based on service need and route coverage."],
-                ["3", "Inspection & Work", "The technician checks the unit and completes the relevant support."],
-                ["4", "Testing & Close", "Cooling, airflow, and final performance are checked before the visit ends."]
-              ].map(([num, title, text]) => (
-                <article key={num} className="rounded-[1.5rem] border border-line bg-paper p-5">
-                  <div className="grid h-12 w-12 place-items-center rounded-full bg-ink text-sm font-bold text-white">
-                    {num}
-                  </div>
-                  <h3 className="mt-4 font-display text-xl font-semibold tracking-[-0.03em]">{title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-smoke">{text}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel-card p-6 md:p-8">
-            <SectionTitle eyebrow="FAQs" title={`Questions about ${service.name} in ${business.city}`} />
-            <div className="grid gap-4 md:grid-cols-2">
-              {faqs.map((faq) => (
-                <article key={faq.question} className="rounded-[1.5rem] border border-line bg-paper p-5">
-                  <h3 className="font-display text-xl font-semibold tracking-[-0.03em]">{faq.question}</h3>
-                  <p className="mt-3 text-sm leading-7 text-smoke">{faq.answer}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel-dark p-8">
-            <span className="eyebrow border-white/10 bg-white/5 text-white/70">Book Today</span>
-            <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.05em]">{cta.title}</h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/70">{cta.text}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={business.whatsappHref} className="btn-whatsapp">
-                WhatsApp Now
-              </a>
-              <a href={business.phoneHref} className="btn-secondary border-white/10 bg-white/5 text-white">
-                Call Now
-              </a>
-            </div>
-          </section>
+          </div>
         </div>
+      </section>
 
-        <aside className="panel-dark h-fit p-6 lg:sticky lg:top-24">
-          <h3 className="font-display text-2xl font-semibold tracking-[-0.03em]">Quick Booking</h3>
-          <p className="mt-3 text-sm leading-7 text-white/70">
-            {service.name} available across {business.city} with direct call and WhatsApp support.
-          </p>
-          <div className="mt-6 flex flex-col gap-3">
-            <a href={business.whatsappHref} className="btn-whatsapp">
-              WhatsApp Booking
-            </a>
-            <a href={business.phoneHref} className="btn-secondary border-white/10 bg-white/5 text-white">
-              Call {business.phoneDisplay}
-            </a>
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeader
+            chip="Service Details"
+            title={`How ${service.name} works in ${business.city}`}
+            description="This page explains what the service includes, which issues it addresses, and why customers usually book before the AC becomes unreliable."
+          />
+          <div className="max-w-5xl space-y-4 text-[15px] leading-[1.85] text-[#555]">
+            {contentBlocks.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
-          <div className="mt-6 grid gap-3 text-sm text-white/70">
-            <span>Response Goal: 30-60 minutes</span>
-            <span>Hours: {business.serviceHours}</span>
-            <span>Address: {business.address}</span>
-            <Link href={getMainServiceHref(service.slug)}>{service.name} main city page</Link>
+        </div>
+      </section>
+
+      <section className="bg-[#eef6ff] py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeader
+            chip="Types Covered"
+            title={`Types of ${service.name}`}
+            description="We support both split AC and window AC needs, with the exact service scope based on the unit and the complaint."
+            centered
+          />
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {service.types.map((type) => (
+              <TypeCard key={type} type={type} />
+            ))}
           </div>
-        </aside>
-      </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeader chip="Why Choose Us" title={`Why customers choose ${business.name} for ${service.name}`} />
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {trustHighlights.map((item) => (
+              <FeatureCard key={item.title} item={item} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f8fafc] py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeader
+            chip="Areas Covered"
+            title={`${service.name} in local areas of ${business.city}`}
+            description="Choose a nearby area page for localized service details, area-specific FAQs, and direct booking."
+          />
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {locations.map((location) => (
+              <AreaPill key={location.slug} href={`/${service.slug}-${location.slug}`} label={location.name} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeader
+            chip="Related Services"
+            title="Related AC services"
+            description="Explore closely related services if you are still comparing the right support option."
+          />
+          <div className="grid gap-6 md:grid-cols-3">
+            {relatedServices.map((related) => (
+              <RelatedServiceCard key={related.slug} related={related} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="bg-[#f8fafc] py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeader chip="Process" title="How the booking works" centered />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["1", "Call or WhatsApp", "Tell us the AC type, issue, and preferred area."],
+              ["2", "Schedule Visit", "We confirm the nearest available slot based on service need and route coverage."],
+              ["3", "Inspection & Work", "The technician checks the unit and completes the required support."],
+              ["4", "Testing & Close", "Cooling, airflow, and overall performance are checked before the visit ends."]
+            ].map(([num, title, text]) => (
+              <ProcessCard key={num} num={num} title={title} text={text} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-[760px] px-6">
+          <SectionHeader chip="FAQs" title={`Questions about ${service.name} in ${business.city}`} description="" />
+          <div className="flex flex-col gap-2.5">
+            {faqs.map((faq) => (
+              <FaqRow key={faq.question} faq={faq} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="relative overflow-hidden rounded-[28px] bg-[linear-gradient(135deg,#0a0a0a_0%,#111827_60%,#0f1a12_100%)] shadow-[0_32px_80px_rgba(0,0,0,0.25)]">
+            <div className="pointer-events-none absolute -right-[60px] -top-[60px] h-[320px] w-[320px] rounded-full [background:radial-gradient(circle,rgba(34,197,94,0.2)_0%,transparent_70%)]" />
+            <div className="pointer-events-none absolute -bottom-10 -left-10 h-[250px] w-[250px] rounded-full [background:radial-gradient(circle,rgba(99,102,241,0.15)_0%,transparent_70%)]" />
+
+            <div className="relative flex flex-col items-center justify-between gap-8 px-6 py-8 md:flex-row md:py-10">
+              <div className="max-w-xl">
+                <Chip dark>Book Today</Chip>
+                <h2 className="mt-4 text-[clamp(1.8rem,3.5vw,2.8rem)] font-black leading-[1.15] tracking-[-0.03em] text-white">
+                  {cta.title}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-white/70">{cta.text}</p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="/contact-us"
+                    className="inline-flex items-center gap-2 rounded-[14px] bg-white px-7 py-3.5 text-[15px] font-bold text-[#111] shadow-[0_4px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(255,255,255,0.2)] active:scale-[0.98] active:bg-[#f3f4f6]"
+                  >
+                    Call Now
+                  </Link>
+                  <a
+                    href={business.whatsappHref}
+                    className="inline-flex items-center gap-2 rounded-[14px] border-[1.5px] border-[#22c55e]/40 bg-[#22c55e]/15 px-7 py-3.5 text-[15px] font-bold text-[#22c55e] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#22c55e] hover:text-white active:scale-[0.98] active:bg-[#16a34a] active:text-white"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+              <img
+                src="/home-cta-1.png"
+                alt="Urban AC technician"
+                className="w-[180px] max-h-[220px] object-contain md:w-[220px]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

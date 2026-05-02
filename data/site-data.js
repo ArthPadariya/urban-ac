@@ -1,9 +1,9 @@
 export const business = {
   name: "Urban AC",
-  phoneDisplay: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
-  whatsappHref: "https://wa.me/919876543210",
-  address: "Vadodara, Gujarat 390001",
+  phoneDisplay: "6354658540",
+  phoneHref: "tel:+916354658540",
+  whatsappHref: "https://wa.me/916354658540",
+  address: "Waghodia Road, Vadodara, Gujarat 390025",
   serviceHours: "7:00 AM to 10:00 PM",
   city: "Vadodara",
   state: "Gujarat"
@@ -20,11 +20,11 @@ export const services = [
     shortDescription:
       "Fast fault diagnosis and same-day repair support for split and window AC units across Vadodara.",
     coreSummary:
-      "Urban AC provides professional AC repair service in Vadodara for low cooling, leakage, noise, compressor trouble, and performance failures in residential and commercial AC systems.",
+      "Urban AC provides professional AC repair service in Vadodara, offering fast and reliable solutions for low cooling, water leakage, noise, compressor trouble, and other performance issues in split and window AC units.",
     technicalSummary:
-      "Our technicians inspect the full cooling cycle, electrical points, fan movement, drainage, and major components before recommending repair work, part replacement, or service correction.",
+      "Our technicians inspect airflow, cooling output, electrical points, drainage, fan movement, and major components before repairing the fault with practical on-site work.",
     valueSummary:
-      "The goal is to restore stable cooling quickly, prevent repeat breakdowns, and keep the repair practical for the age and condition of the AC.",
+      "Timely repair helps restore stable cooling, reduces the chance of repeat breakdowns, and keeps the unit reliable during peak summer use.",
     includes: [
       "cooling issue diagnosis",
       "leakage and drainage checks",
@@ -46,9 +46,10 @@ export const services = [
     types: ["Split AC Repair", "Window AC Repair", "Cooling Issue Repair", "Compressor & Leakage Checks"],
     localAngles: [
       "homes that run the AC for long evening hours",
-      "offices that cannot afford unexpected cooling downtime",
+      "offices that cannot afford cooling downtime",
       "shops and clinics that need quick local support",
-      "family apartments dealing with sudden summer breakdowns"
+      "family apartments dealing with sudden summer breakdowns",
+      "rental properties preparing units for tenants"
     ]
   },
   {
@@ -59,11 +60,11 @@ export const services = [
     shortDescription:
       "Routine AC service with cleaning, inspection, and performance checks for healthier and more efficient cooling.",
     coreSummary:
-      "Urban AC offers high-quality AC service in Vadodara to keep air conditioners running smoothly, improve cooling efficiency, and reduce avoidable wear on the system.",
+      "Urban AC offers high-quality AC service in Vadodara to keep your air conditioner running smoothly and efficiently. Regular AC servicing improves cooling performance, reduces electricity consumption, and helps the unit stay dependable for longer.",
     technicalSummary:
-      "A standard service visit includes filter cleaning, coil attention, drain line inspection, airflow review, and overall system performance checks for split and window AC units.",
+      "A standard service visit includes filter cleaning, coil cleaning, drain line inspection, airflow review, and an overall performance check for split and window AC units.",
     valueSummary:
-      "Regular servicing helps lower electricity consumption, improves day-to-day cooling, and reduces the chance of a small issue turning into an urgent repair call.",
+      "Regular servicing helps prevent future breakdowns, supports cleaner air, and keeps daily cooling more stable in homes and offices.",
     includes: [
       "filter cleaning",
       "coil and blower attention",
@@ -87,7 +88,8 @@ export const services = [
       "societies where units run daily through summer",
       "offices that need cleaner airflow and stable cooling",
       "rental homes preparing the AC before heavy use",
-      "families looking for AC service near me without delay"
+      "families looking for AC service near me without delay",
+      "small clinics and shops using AC throughout the day"
     ]
   },
   {
@@ -98,11 +100,11 @@ export const services = [
     shortDescription:
       "Professional installation and relocation support for split and window AC units with proper setup and testing.",
     coreSummary:
-      "Urban AC provides expert AC installation service in Vadodara for split AC and window AC units, with careful placement, secure mounting, and practical setup for long-term cooling performance.",
+      "Urban AC provides expert AC installation service in Vadodara for split AC and window AC units. Proper installation is essential for strong cooling, energy efficiency, and long-term performance.",
     technicalSummary:
-      "Our installation process focuses on correct indoor and outdoor unit positioning, copper piping alignment, electrical safety, drainage slope, and post-installation testing.",
+      "Our technicians handle accurate placement of indoor and outdoor units, copper piping, electrical connections, drainage slope, and final testing after installation or relocation.",
     valueSummary:
-      "A proper installation reduces cooling loss, prevents avoidable gas leakage or water dripping, and gives the unit a better start from day one.",
+      "Good installation avoids avoidable leakage, poor cooling, and early system stress while helping the unit perform properly from day one.",
     includes: [
       "indoor and outdoor unit placement",
       "drain pipe alignment",
@@ -126,7 +128,8 @@ export const services = [
       "new apartments and villas needing neat installation work",
       "office cabins preparing for summer operations",
       "families relocating an existing AC after shifting",
-      "property owners who want clean fitting without repeat visits"
+      "property owners who want clean fitting without repeat visits",
+      "showrooms and retail spaces requiring tidy piping work"
     ]
   },
   {
@@ -137,11 +140,11 @@ export const services = [
     shortDescription:
       "Refrigerant inspection and gas filling service for weak cooling, pressure issues, and leak-related performance drops.",
     coreSummary:
-      "Urban AC provides professional AC gas filling in Vadodara to restore cooling performance when refrigerant levels drop or the system starts taking longer to cool.",
+      "Urban AC provides professional AC gas filling in Vadodara to restore cooling performance quickly and efficiently when refrigerant levels drop or the system starts cooling slowly.",
     technicalSummary:
-      "Technicians inspect the pressure, check for visible leak points, and refill the correct gas type such as R22, R32, or R410A based on the AC model and condition.",
+      "Our technicians inspect system pressure, check visible leak points, and refill the correct gas such as R22, R32, or R410A according to the AC model and condition.",
     valueSummary:
-      "Proper gas filling helps the AC cool faster, prevents extra compressor strain, and ensures the unit runs smoothly instead of working under pressure loss.",
+      "Correct gas filling helps the AC cool faster, reduces compressor strain, and keeps the system running more smoothly during heavy use.",
     includes: [
       "pressure inspection",
       "visible leakage review",
@@ -165,7 +168,8 @@ export const services = [
       "homes noticing cooling loss before peak summer",
       "office AC units running weak during business hours",
       "older systems that need pressure checks before repairs",
-      "customers comparing AC service near me for quick gas support"
+      "customers comparing AC service near me for quick gas support",
+      "properties where long runtime exposes refrigerant loss faster"
     ]
   },
   {
@@ -176,11 +180,11 @@ export const services = [
     shortDescription:
       "Annual maintenance support with scheduled visits, periodic servicing, and priority assistance across Vadodara.",
     coreSummary:
-      "Urban AC offers reliable AC maintenance (AMC) services in Vadodara to keep air conditioners running at peak performance throughout the year with planned visits and preventive care.",
+      "Urban AC offers reliable AC maintenance (AMC) services in Vadodara to keep your air conditioner running at peak performance throughout the year with scheduled visits and preventive care.",
     technicalSummary:
-      "AMC plans include periodic servicing, filter and coil cleaning, gas pressure checks, full inspection, and priority scheduling when a unit starts showing early signs of trouble.",
+      "AMC plans include periodic servicing, filter and coil cleaning, gas pressure checks, and full system inspection with priority support when sudden issues appear.",
     valueSummary:
-      "A structured maintenance plan reduces sudden summer breakdowns, keeps cooling more consistent, and makes yearly upkeep easier for homes and offices.",
+      "Regular maintenance reduces surprise breakdowns, keeps cooling more consistent, and makes yearly upkeep easier for homes and offices.",
     includes: [
       "scheduled service visits",
       "filter and coil cleaning",
@@ -204,7 +208,8 @@ export const services = [
       "offices managing multiple AC units",
       "families wanting planned upkeep instead of emergency calls",
       "clinics and shops that prefer predictable maintenance cycles",
-      "customers who need priority support during summer demand"
+      "customers who need priority support during summer demand",
+      "residential societies planning pre-season service"
     ]
   },
   {
@@ -215,11 +220,11 @@ export const services = [
     shortDescription:
       "Targeted repair support for split AC cooling faults, leakage, sensor issues, and indoor-outdoor unit problems.",
     coreSummary:
-      "Urban AC specializes in split AC repair in Vadodara, offering fast solutions for low cooling, water leakage, unusual noise, sensor failure, and indoor or outdoor unit faults.",
+      "Urban AC specializes in split AC repair in Vadodara, providing fast and effective solutions for low cooling, water leakage, unusual noise, sensor failure, and indoor or outdoor unit faults.",
     technicalSummary:
-      "Split AC systems need skilled handling, so our team checks board signals, fan movement, coil condition, drainage, piping, and outdoor unit operation before completing repair work.",
+      "Split AC systems need skilled handling, so our team checks board signals, fan movement, coil condition, drainage, piping, and outdoor unit performance before completing the repair.",
     valueSummary:
-      "Accurate split AC repair improves reliability, avoids repeat complaints, and helps the system deliver long-lasting cooling instead of temporary relief.",
+      "Accurate split AC repair improves reliability, avoids repeat complaints, and helps the system deliver steady cooling instead of temporary relief.",
     includes: [
       "indoor and outdoor unit diagnosis",
       "sensor and fan checks",
@@ -243,7 +248,8 @@ export const services = [
       "modern homes using inverter split AC units",
       "apartments where drainage problems affect walls or flooring",
       "office spaces that rely on quiet and steady cooling",
-      "customers needing expert handling instead of trial-and-error repair"
+      "customers needing expert handling instead of trial-and-error repair",
+      "families dealing with indoor and outdoor unit issues together"
     ]
   },
   {
@@ -254,11 +260,11 @@ export const services = [
     shortDescription:
       "Electronic control board diagnosis and repair for error codes, voltage damage, and unpredictable AC behavior.",
     coreSummary:
-      "Urban AC provides expert AC PCB repair in Vadodara to fix electronic control issues when the air conditioner stops responding properly, shows errors, or behaves unpredictably.",
+      "Urban AC provides expert AC PCB repair in Vadodara to fix electronic control issues in your air conditioner. The PCB acts as the brain of the AC, and faults can stop the system, trigger errors, or cause unstable behaviour.",
     technicalSummary:
-      "The PCB acts as the control brain of the AC, so our technicians inspect for voltage damage, sensor faults, relay issues, and circuit failures before recommending safe repair work.",
+      "Our technicians inspect the control board for voltage damage, sensor faults, relay issues, and circuit failures before recommending precise board-level repair.",
     valueSummary:
-      "A precise PCB repair can be far more cost-effective than replacing the full unit and helps extend the working life of the AC when the rest of the system is still sound.",
+      "Careful PCB repair can be far more cost-effective than replacing the unit and helps extend AC life when the rest of the system is still in good condition.",
     includes: [
       "PCB fault diagnosis",
       "sensor and relay inspection",
@@ -282,7 +288,8 @@ export const services = [
       "homes facing sudden board failure after voltage fluctuation",
       "offices where controller issues disrupt daily cooling",
       "customers looking for cost-effective repair before replacement",
-      "technically complex cases that need experienced diagnosis"
+      "technically complex cases that need experienced diagnosis",
+      "older units with intermittent electronic control issues"
     ]
   },
   {
@@ -293,11 +300,11 @@ export const services = [
     shortDescription:
       "Deep AC cleaning for filters, coils, blower, and drain lines to improve cooling and air quality.",
     coreSummary:
-      "Urban AC offers professional AC cleaning service in Vadodara to improve cooling efficiency, reduce odor, and maintain healthier indoor air for homes and offices.",
+      "Urban AC offers professional AC cleaning service in Vadodara to improve cooling efficiency and maintain healthier air quality. Dust and dirt build up inside filters, coils, blower sections, and drainage systems over time, reducing performance and causing bad odor.",
     technicalSummary:
-      "Dust and dirt build up in filters, coils, blower sections, and drainage areas over time, so our deep cleaning visit targets the components that most affect airflow and hygiene.",
+      "Our deep cleaning visit covers filters, evaporator coils, condenser sections, blower areas, and the drainage line so the unit can cool more cleanly and efficiently.",
     valueSummary:
-      "A cleaner AC usually cools better, consumes less electricity, and reduces the chance of dirty-air related discomfort during regular daily use.",
+      "A well-cleaned AC cools better, uses power more efficiently, and lowers the chance of dirty-air discomfort inside the room.",
     includes: [
       "filter and blower cleaning",
       "evaporator and condenser attention",
@@ -321,7 +328,8 @@ export const services = [
       "families wanting cleaner air in daily living spaces",
       "office cabins where odor and dust are noticeable",
       "homes using the AC for long hours each day",
-      "customers searching AC cleaning in the area with same-day support"
+      "customers searching AC cleaning in the area with same-day support",
+      "properties where dirty filters affect comfort quickly"
     ]
   }
 ];
@@ -494,6 +502,10 @@ export const topLocations = ["vasna", "alkapuri", "akota", "gotri", "sama", "say
 export const locationMap = Object.fromEntries(locations.map((location) => [location.slug, location]));
 export const serviceMap = Object.fromEntries(services.map((service) => [service.slug, service]));
 
+const serviceSlugAliases = {
+  "ac-split-ac-repair": "split-ac-repair"
+};
+
 const locationSuffixes = [...locations]
   .sort((a, b) => b.slug.length - a.slug.length)
   .map((location) => [`-${location.slug}`, location]);
@@ -504,78 +516,78 @@ const cityServiceSlugMap = Object.fromEntries(
 
 const cityIntroTemplates = [
   (service) =>
-    `Need ${service.sentence} in ${business.city}? ${business.name} handles bookings across major residential and commercial pockets with doorstep technicians, clear diagnostics, and practical service support. This city page is designed for people comparing ${service.keyword}, looking for AC service near me, or trying to understand what the visit includes before they book.`,
+    `Looking for ${service.sentence} in ${business.city}? ${business.name} handles bookings across residential and commercial areas with doorstep technicians, clear fault checks, and practical service support from first call to final testing.`,
   (service) =>
-    `${service.name} in ${business.city} should be easy to book and easy to trust. ${business.name} provides local coverage across homes, offices, shops, and apartment communities with response planning based on the area, issue severity, and current workload. If you want dependable service, cleaner communication, and a direct call or WhatsApp booking path, this page brings everything together in one place.`,
+    `${service.name} in ${business.city} should be simple to book and worth the visit. ${business.name} serves homes, offices, clinics, and shops with local scheduling, same-day slots when available, and clear communication about the work required.`,
   (service) =>
-    `Searching for ${service.keyword}? ${business.name} offers structured local support across ${business.city}, with technicians who understand the common cooling issues seen in split and window AC systems during heavy summer use. This page explains what the service covers, when it becomes necessary, and how nearby area pages connect to the main city route.`,
+    `If you are comparing ${service.keyword} or searching for AC service near me, this page gives you a direct view of how ${business.name} handles ${service.sentence} across Vadodara without vague promises or confusing service language.`,
   (service) =>
-    `Customers across ${business.city} usually look for three things before booking ${service.sentence}: fast response, clear scope, and work that actually fixes the cooling issue. ${business.name} is built around that expectation, with doorstep scheduling, service guidance, and practical follow-up for households and businesses that depend on steady AC performance.`,
+    `Customers across ${business.city} usually want three things before booking ${service.sentence}: quick response, honest diagnosis, and work that actually solves the cooling issue. ${business.name} is built around that expectation.`,
   (service) =>
-    `If your AC has started underperforming, making noise, losing cooling, or simply needs scheduled care, ${business.name} provides ${service.sentence} across ${business.city} with same-day availability whenever slots are open. This city landing page acts as the main hub for service details, area links, and direct booking.`,
+    `${business.name} provides ${service.sentence} throughout ${business.city}, ${business.state}, with local coverage that suits homes, offices, apartment buildings, retail spaces, and high-use commercial properties.`,
   (service) =>
-    `${business.name} delivers ${service.sentence} throughout ${business.city}, ${business.state}, with a local-first process that suits homes, offices, clinics, and retail spaces. Instead of thin content or generic claims, this page focuses on what the service actually includes, which issues it helps solve, and where we respond most often.`,
+    `When an AC starts cooling slowly, leaking, making noise, or showing signs of neglect, timely ${service.sentence} can save both time and further expense. ${business.name} offers that support across major areas of ${business.city}.`,
   (service) =>
-    `Looking for a dependable team for ${service.sentence} in ${business.city}? We cover everyday household issues, office downtime concerns, and seasonal maintenance needs with a simple booking flow and clear on-site support. The linked area pages below make it easier to find local service coverage close to your address.`,
+    `${service.name} is one of the most commonly booked AC needs during summer in ${business.city}, especially when regular use begins exposing cooling faults, airflow issues, or maintenance gaps. ${business.name} keeps the process local and straightforward.`,
   (service) =>
-    `${service.name} is one of the most frequently booked AC needs during warm weather in ${business.city}, especially when units begin cooling slowly, pushing dusty air, or showing early fault symptoms. ${business.name} keeps the process local and organized, from the first call to the final cooling check.`,
+    `Whether you need routine support or urgent help, ${business.name} delivers ${service.sentence} in ${business.city} with experienced technicians, doorstep availability, and area-based service pages that make booking easier.`,
   (service) =>
-    `From premium apartment towers to inner-city homes and office cabins, ${business.city} has varied AC usage patterns and service demands. ${business.name} provides ${service.sentence} with that local reality in mind, combining technical checks, clear explanations, and quick access to area-specific pages.`,
+    `This city page is for users who want more than a contact number. It explains what ${service.sentence} includes, which AC problems it addresses, and how nearby area pages connect to the main ${business.city} service route.`,
   (service) =>
-    `This ${service.name} page is built for users who want more than a phone number. It explains how ${business.name} approaches ${service.sentence} in ${business.city}, what results to expect, which AC types we handle, and how local response coverage works before you book.`,
+    `From central business districts to family housing societies, AC usage varies a lot across ${business.city}. ${business.name} provides ${service.sentence} with that local reality in mind, combining technical checks with quicker area-based response planning.`,
   (service) =>
-    `When people search for AC repair near me, AC service near me, or a local AC technician in ${business.city}, they usually want fast answers and a trustworthy booking option. ${business.name} provides ${service.sentence} with localized coverage, realistic response guidance, and direct access to location pages.`,
+    `Searching for ${service.keyword}? ${business.name} offers a clean booking path for ${service.sentence}, covering split AC and window AC needs with practical on-site service across Vadodara.`,
   (service) =>
-    `${service.name} in ${business.city} is not just about arriving fast; it is also about diagnosing the issue properly, doing the work cleanly, and helping the unit perform better after the visit. ${business.name} uses this page to connect the main city service with each local coverage area in a more useful way.`
+    `${service.name} in ${business.city} is handled with a focus on actual performance, not just a basic checklist. ${business.name} looks at how the unit behaves in use, what issue is affecting cooling, and what will improve results for the customer.`
 ];
 
 const locationIntroTemplates = [
   (service, location) =>
-    `Looking for ${service.sentence} in ${location.name}, ${business.city}? ${business.name} covers ${location.landmark} and nearby pockets with doorstep support for homes, offices, and commercial spaces. Customers in ${location.name} often search for AC service near me when the unit stops cooling properly, starts making noise, or needs timely cleaning before the heat builds up. Our local response window for ${location.name} is usually ${location.responseTime}, depending on traffic and slot availability.`,
+    `Looking for ${service.sentence} in ${location.name}, ${business.city}? ${business.name} covers ${location.landmark} and nearby pockets with doorstep support for homes, offices, and commercial spaces, usually aiming for a response window of ${location.responseTime}.`,
   (service, location) =>
-    `${service.name} in ${location.name}, ${business.city} should feel simple to book and worth the visit. ${business.name} regularly handles calls across ${location.context}, so our technicians are familiar with the building layouts, usage patterns, and common cooling complaints seen around ${location.landmark}. If you need fast AC support with clear communication and practical work on site, this page gives you the right local route.`,
+    `${service.name} in ${location.name} should feel local, quick, and easy to book. Our team regularly serves ${location.context}, so we already understand the common AC issues and access patterns seen around ${location.landmark}.`,
   (service, location) =>
-    `Need ${service.sentence} in ${location.name}? Our team serves families, tenants, office managers, and shop owners across ${location.context} with local doorstep scheduling and same-day options whenever they are available. Many bookings from ${location.name} start with weak cooling, dust-heavy airflow, leakage, or service delays, so we focus on quick response and clear next steps from the first call.`,
+    `Need ${service.sentence} in ${location.name}? Many bookings from this area start with weak cooling, bad odor, leakage, or delayed maintenance. ${business.name} responds with local technicians and a straightforward booking process that suits busy households and offices.`,
   (service, location) =>
-    `People searching for ${service.sentence} in ${location.name}, ${business.city} usually want a nearby technician who can actually reach on time and solve the issue properly. ${business.name} responds around ${location.landmark} and nearby zones with a local coverage model that aims for ${location.responseTime} in most standard cases. This page explains the service scope, local trust points, and connected nearby area links.`,
+    `People searching for ${service.sentence} in ${location.name}, ${business.city} usually want a nearby technician who can reach on time and solve the issue properly. ${business.name} serves ${location.landmark} and nearby roads with practical local support.`,
   (service, location) =>
-    `${business.name} provides ${service.sentence} in ${location.name} for residential buildings, office units, retail spaces, and family homes that rely on steady AC performance. Because we already cover ${location.landmark} and the surrounding streets, booking support in ${location.name} is more direct, more local, and easier to follow than generic citywide listings.`,
+    `${business.name} provides ${service.sentence} in ${location.name} for residential buildings, office units, shops, and family homes that depend on steady cooling. Because we already work around ${location.landmark}, service coverage in ${location.name} stays more direct and better organized.`,
   (service, location) =>
-    `If your AC is underperforming in ${location.name}, ${business.city}, this local page is built to help you book the right support faster. ${business.name} serves ${location.context} with doorstep technicians, practical fault checks, and service visits tailored to the way units are actually used around ${location.landmark}.`,
+    `If your AC is underperforming in ${location.name}, this local page is built to help you book the right support faster. We serve ${location.context} with doorstep visits, clear fault checks, and same-day availability whenever slots are open.`,
   (service, location) =>
-    `Customers across ${location.name} often compare AC repair in ${location.name}, AC cleaning in ${location.name}, and general AC service near me before choosing a provider. ${business.name} keeps the process straightforward by pairing local response support with a clearer explanation of what ${service.sentence} includes and when it becomes necessary.`,
+    `Customers across ${location.name} often compare AC repair in ${location.name}, AC cleaning in ${location.name}, and general AC service near me before making a booking. ${business.name} keeps the process simple by explaining what ${service.sentence} includes and how quickly we can reach the area.`,
   (service, location) =>
-    `${service.name} in ${location.name}, ${business.city} is handled with a local-first approach at ${business.name}. We understand the day-to-day service demand around ${location.landmark}, the heavy seasonal load in ${location.context}, and the need for a realistic response window. That is why most standard calls in ${location.name} are planned around a ${location.responseTime} target.`,
+    `${service.name} in ${location.name}, ${business.city} is handled with a local-first approach. We know the service demand around ${location.landmark}, the building mix in ${location.context}, and the need for a realistic response window instead of vague promises.`,
   (service, location) =>
-    `From early cooling complaints to full service visits, ${business.name} supports customers who need ${service.sentence} in ${location.name} without a complicated booking process. We regularly attend jobs in and around ${location.landmark}, making it easier to provide local assistance for both urgent and routine AC requirements.`,
+    `From routine service visits to urgent cooling complaints, ${business.name} supports customers who need ${service.sentence} in ${location.name} without a complicated process. We already cover ${location.landmark} and nearby streets, which helps us schedule more efficiently.`,
   (service, location) =>
-    `Want dependable ${service.sentence} in ${location.name}? ${business.name} covers the area with technicians who already work around ${location.context}, which helps us keep visits organized and locally relevant. This page combines service details, nearby area links, and booking CTAs so users in ${location.name} can act quickly when cooling problems show up.`,
+    `Want dependable ${service.sentence} in ${location.name}? ${business.name} works across ${location.context} with local technicians who handle split AC and window AC problems at the doorstep and keep the customer informed throughout the visit.`,
   (service, location) =>
-    `${service.name} bookings from ${location.name} usually come from households and offices that need quick relief from slow cooling, dust, leakage, or unpredictable AC behavior. ${business.name} responds around ${location.landmark} with doorstep support, service guidance, and local area linking that makes the page more useful than a generic city listing.`,
+    `${service.name} bookings from ${location.name} often come from households and offices that need quick relief from slow cooling, dust, leakage, or unstable AC behaviour. We respond around ${location.landmark} with localized support and clear service details.`,
   (service, location) =>
-    `If you are trying to book ${service.sentence} in ${location.name}, ${business.city}, it helps to work with a team that already knows the area. ${business.name} serves ${location.context} with local technicians, same-day availability when open, and clear on-site handling for split and window AC needs around ${location.landmark}.`
+    `If you are trying to book ${service.sentence} in ${location.name}, it helps to work with a team that already knows the area. ${business.name} serves ${location.context} with local scheduling, straightforward communication, and response planning around ${location.responseTime}.`
 ];
 
 const cityFaqTemplates = [
   (service) => ({
     question: `How fast can you provide ${service.sentence} in ${business.city}?`,
-    answer: `For most serviceable pockets in ${business.city}, we plan a typical response window of around 30 to 60 minutes depending on traffic, technician allocation, and booking load.`
+    answer: `For most serviceable pockets in ${business.city}, we usually plan a response window of 30 to 60 minutes depending on traffic, technician assignment, and booking load.`
   }),
   (service) => ({
     question: `What does a standard ${service.sentence} visit include?`,
-    answer: `A normal visit can include ${service.includes.join(", ")}, with the final scope depending on the AC condition and whether the request is routine or problem-based.`
+    answer: `A standard visit can include ${service.includes.join(", ")}, with the final scope depending on the AC condition and whether the request is routine or issue-based.`
   }),
   (service) => ({
     question: `Do you handle split and window AC units for ${service.sentence}?`,
-    answer: `Yes. ${business.name} supports split AC and window AC systems across ${business.city}, with service steps adjusted to the unit type and issue.`
+    answer: `Yes. ${business.name} supports split AC and window AC systems across ${business.city}, with the service process adjusted to the unit type and actual complaint.`
   }),
   (service) => ({
     question: `Can I book same-day ${service.sentence} in ${business.city}?`,
-    answer: `Yes, same-day slots are available whenever our local schedule allows. Early call or WhatsApp booking usually improves your chances of getting a preferred visit window.`
+    answer: `Yes, same-day slots are available whenever our local schedule allows. Calling or messaging earlier in the day usually gives better booking options.`
   }),
   (service) => ({
     question: `When should I book ${service.sentence} instead of waiting longer?`,
-    answer: `It is better to book when you notice signs like ${service.problems.join(", ")} because delaying support can turn a manageable issue into a more expensive one.`
+    answer: `It is better to book when you notice signs like ${service.problems.join(", ")} because delaying support can turn a manageable issue into a larger repair or performance problem.`
   }),
   (service) => ({
     question: `Is ${service.sentence} available for office and commercial spaces too?`,
@@ -587,38 +599,38 @@ const cityFaqTemplates = [
   }),
   (service) => ({
     question: `How do I book ${service.sentence} quickly?`,
-    answer: `You can book by direct call or WhatsApp. Share your area, AC type, and the issue, and we will guide you to the right city page or local page for faster scheduling.`
+    answer: `Use direct call or WhatsApp, share your area and AC issue, and our team will route your request to the right city page or local page for faster scheduling.`
   })
 ];
 
 const locationFaqTemplates = [
   (service, location) => ({
     question: `How fast can you reach ${location.name} for ${service.sentence}?`,
-    answer: `For ${location.name}, we usually target ${location.responseTime} depending on current traffic, technician assignment, and open slots.`
+    answer: `For ${location.name}, we usually target ${location.responseTime} depending on traffic, technician assignment, and current slot availability.`
   }),
   (service, location) => ({
     question: `Do you offer same-day ${service.sentence} in ${location.name}?`,
-    answer: `Yes, same-day ${service.sentence} in ${location.name} is available when our schedule has open capacity. Booking earlier in the day generally helps.`
+    answer: `Yes, same-day ${service.sentence} in ${location.name} is available whenever the schedule has open capacity. Early booking generally helps.`
   }),
   (service, location) => ({
     question: `What AC issues are commonly handled during ${service.sentence} in ${location.name}?`,
-    answer: `Bookings from ${location.name} often involve ${service.problems.join(", ")}, along with cleaning, inspection, or performance complaints depending on the AC condition.`
+    answer: `Bookings from ${location.name} often involve ${service.problems.join(", ")}, along with cleaning, inspection, or performance complaints depending on the unit condition.`
   }),
   (service, location) => ({
     question: `Do you support split and window AC units in ${location.name}?`,
-    answer: `Yes. ${business.name} handles both split and window AC requirements in ${location.name}, with the service process adjusted to the unit type and setup.`
+    answer: `Yes. ${business.name} handles both split AC and window AC requirements in ${location.name}, with the service steps adjusted to the unit type and setup.`
   }),
   (service, location) => ({
     question: `Why do people in ${location.name} book ${service.sentence} before peak summer?`,
-    answer: `Preventive booking helps avoid heavy-season breakdowns, especially in areas around ${location.landmark} where daily AC use becomes more intense as temperatures rise.`
+    answer: `Preventive booking helps avoid heavy-season breakdowns, especially in areas around ${location.landmark} where daily AC use becomes more intense as the weather heats up.`
   }),
   (service, location) => ({
     question: `Is doorstep ${service.sentence} available across ${location.name}?`,
-    answer: `Yes. We serve ${location.context} and nearby pockets, so most standard bookings in ${location.name} can be handled at the customer’s doorstep.`
+    answer: `Yes. We cover ${location.context} and nearby pockets, so most standard bookings in ${location.name} can be handled directly at the doorstep.`
   }),
   (service, location) => ({
     question: `Can you guide me if I am unsure whether I need ${service.name} or another AC service?`,
-    answer: `Yes. Share the symptoms by call or WhatsApp, and we can help you decide whether ${service.sentence}, a related service, or a different inspection visit is the better fit.`
+    answer: `Yes. Share the symptoms by call or WhatsApp, and we can help you decide whether ${service.sentence}, a related service, or another inspection visit is the better fit.`
   }),
   (service, location) => ({
     question: `How do I book ${service.sentence} near ${location.landmark}?`,
@@ -629,7 +641,7 @@ const locationFaqTemplates = [
 const ctaTemplates = [
   (service, locationName) => ({
     title: `Book your ${service.sentence}${locationName ? ` in ${locationName}` : ` in ${business.city}`} today.`,
-    text: `Call or WhatsApp ${business.name} for fast doorstep support, local scheduling, and clear help with ${service.sentence}.`
+    text: `Call or WhatsApp ${business.name} for fast doorstep support and clear help with ${service.sentence}.`
   }),
   (service, locationName) => ({
     title: `Need ${service.name}${locationName ? ` in ${locationName}` : ""} without delay?`,
@@ -637,7 +649,7 @@ const ctaTemplates = [
   }),
   (service, locationName) => ({
     title: `Speak to a local AC technician for ${service.name}.`,
-    text: `${business.name} helps customers${locationName ? ` in ${locationName}` : ` across ${business.city}`} with same-day support whenever slots are open.`
+    text: `${business.name} helps customers${locationName ? ` in ${locationName}` : ` across ${business.city}`} with same-day support whenever open slots are available.`
   }),
   (service, locationName) => ({
     title: `Get ${service.sentence} booked in a few minutes.`,
@@ -645,11 +657,11 @@ const ctaTemplates = [
   }),
   (service, locationName) => ({
     title: `Ready to restore better cooling?`,
-    text: `Book ${service.sentence}${locationName ? ` in ${locationName}` : ""} now and get clear local support from ${business.name}.`
+    text: `Book ${service.sentence}${locationName ? ` in ${locationName}` : ""} now and get direct support from ${business.name}.`
   }),
   (service, locationName) => ({
     title: `Fast local booking for ${service.name}.`,
-    text: `From routine support to urgent cooling issues, ${business.name} offers doorstep scheduling${locationName ? ` in ${locationName}` : ` across ${business.city}`}.`
+    text: `${business.name} offers doorstep scheduling${locationName ? ` in ${locationName}` : ` across ${business.city}`} for routine and urgent AC needs.`
   })
 ];
 
@@ -668,22 +680,14 @@ function pickFrom(list, seed, offset = 0) {
 }
 
 function pickMany(list, seed, count) {
-  const chosen = [];
-  const seen = new Set();
-  let cursor = seed;
-
-  while (chosen.length < Math.min(count, list.length)) {
-    const index = cursor % list.length;
-
-    if (!seen.has(index)) {
-      seen.add(index);
-      chosen.push(list[index]);
-    }
-
-    cursor += 3;
-  }
-
-  return chosen;
+  return [...list]
+    .map((item, index) => ({
+      item,
+      rank: hashString(`${seed}-${index}`)
+    }))
+    .sort((a, b) => a.rank - b.rank)
+    .slice(0, Math.min(count, list.length))
+    .map((entry) => entry.item);
 }
 
 function getSeed(serviceSlug, locationSlug = citySlug) {
@@ -724,73 +728,74 @@ export function getLocationIntro(service, location) {
 
 export function getCityContentBlocks(service) {
   const seed = getSeed(service.slug);
-  const lead = pickFrom(
-    [
-      "The service starts with understanding how the AC is behaving in real use, not just ticking a checklist.",
-      "Every visit focuses on how the unit is actually performing at your site before any recommendation is made.",
-      "Our technicians first look at the AC’s real operating condition so the work stays practical and relevant.",
-      "The work begins with a clear review of cooling, airflow, and visible operating symptoms."
-    ],
-    seed
-  );
-  const technical = pickFrom(
-    [
-      `In most cases, the visit can include ${service.includes.join(", ")}, depending on the unit type, service history, and the complaint reported by the customer.`,
-      `${service.name} may involve ${service.includes.join(", ")}, with the exact scope shaped by the AC model, its current condition, and the reason for booking.`,
-      `Typical work includes ${service.includes.join(", ")}, followed by testing so the result can be checked before the visit is closed.`,
-      `Depending on the problem, we may carry out ${service.includes.join(", ")}, then verify whether cooling and overall performance have improved.`
-    ],
-    seed,
-    1
-  );
-  const closer = pickFrom(
-    [
-      `Timely ${service.sentence} helps ${service.benefits.join(", ")}, especially when the first warning signs are ${service.problems.join(", ")}.`,
-      `Booking support at the right time can ${service.benefits.join(", ")}, while also preventing complaints like ${service.problems.join(", ")} from escalating.`,
-      `${service.name} is most effective when done before issues like ${service.problems.join(", ")} start affecting daily comfort or business operations.`,
-      `Handled early, ${service.sentence} can ${service.benefits.join(", ")}, which is why many customers book before the unit becomes unreliable.`
-    ],
-    seed,
-    2
-  );
-
-  return [lead, `${service.coreSummary} ${service.technicalSummary}`, `${technical} ${closer} ${service.valueSummary}`];
+  return [
+    pickFrom(
+      [
+        `${service.coreSummary} ${service.technicalSummary}`,
+        `${service.technicalSummary} ${service.coreSummary}`,
+        `${service.coreSummary} We handle this service for both homes and commercial properties across ${business.city}.`,
+        `${service.coreSummary} Every visit begins with a practical inspection so the service stays relevant to the condition of the AC.`
+      ],
+      seed
+    ),
+    pickFrom(
+      [
+        `In most cases, the work may include ${service.includes.join(", ")}, depending on the AC type, service history, and complaint reported by the customer.`,
+        `${service.name} may involve ${service.includes.join(", ")}, with the final scope shaped by the AC model, its present condition, and the reason for booking.`,
+        `Typical work includes ${service.includes.join(", ")}, followed by testing so the result can be checked before the visit is closed.`,
+        `Depending on the problem, our team may carry out ${service.includes.join(", ")} before verifying whether cooling and overall performance have improved.`
+      ],
+      seed,
+      1
+    ),
+    pickFrom(
+      [
+        `${service.valueSummary} Timely ${service.sentence} is especially useful when the first signs are ${service.problems.join(", ")}.`,
+        `Booked at the right time, ${service.sentence} can ${service.benefits.join(", ")}, while preventing ${service.problems.join(", ")} from getting worse.`,
+        `${service.name} gives better long-term results when handled before issues like ${service.problems.join(", ")} start affecting daily comfort.`,
+        `${service.valueSummary} That is why many customers book before the AC becomes unreliable during peak summer use.`
+      ],
+      seed,
+      2
+    )
+  ];
 }
 
 export function getLocationContentBlocks(service, location) {
   const seed = getSeed(service.slug, location.slug);
   const localAngle = pickFrom(service.localAngles, seed);
-  const first = pickFrom(
-    [
-      `${service.coreSummary} In ${location.name}, this is especially relevant for ${localAngle} around ${location.landmark}.`,
-      `${service.name} bookings from ${location.name} often come from ${localAngle}, which is why our local approach around ${location.landmark} stays practical and response-focused.`,
-      `Customers in ${location.name} usually book ${service.sentence} when daily AC usage starts exposing faults or performance drops. ${service.coreSummary}`,
-      `Around ${location.landmark}, many properties rely on steady cooling for long hours. ${service.coreSummary}`
-    ],
-    seed
-  );
-  const second = pickFrom(
-    [
-      `${service.technicalSummary} A local visit in ${location.name} may include ${service.includes.join(", ")}, depending on the AC type and the condition found on site.`,
-      `For customers in ${location.name}, the work may cover ${service.includes.join(", ")} after the technician reviews the actual condition of the unit. ${service.technicalSummary}`,
-      `${service.technicalSummary} Because service demand in ${location.context} can vary, we keep the process clear and explain the scope before completing the work.`,
-      `A doorstep visit near ${location.landmark} usually focuses on ${service.includes.join(", ")}, along with practical checks that confirm whether the AC is performing better after the job.`
-    ],
-    seed,
-    1
-  );
-  const third = pickFrom(
-    [
-      `${service.valueSummary} For ${location.name} customers, timely booking can ${service.benefits.join(", ")}.`,
-      `Handled at the right time, ${service.sentence} in ${location.name} can ${service.benefits.join(", ")}, while reducing the chance of ${service.problems.join(", ")} becoming more expensive.`,
-      `${service.valueSummary} That matters in ${location.name}, where many customers call us after noticing ${service.problems.join(", ")}.`,
-      `The practical benefit of early local support is simple: ${service.benefits.join(", ")}. That is why many users around ${location.landmark} book before the issue becomes disruptive.`
-    ],
-    seed,
-    2
-  );
 
-  return [first, second, third];
+  return [
+    pickFrom(
+      [
+        `${service.coreSummary} In ${location.name}, this matters even more for ${localAngle} around ${location.landmark}.`,
+        `${service.name} bookings from ${location.name} often come from ${localAngle}, which is why our local approach around ${location.landmark} stays practical and response-focused.`,
+        `Customers in ${location.name} usually book ${service.sentence} when daily AC use starts exposing faults or performance drops. ${service.coreSummary}`,
+        `Around ${location.landmark}, many properties rely on steady cooling for long hours. ${service.coreSummary}`
+      ],
+      seed
+    ),
+    pickFrom(
+      [
+        `${service.technicalSummary} A local visit in ${location.name} may include ${service.includes.join(", ")}, depending on the AC type and condition found on site.`,
+        `For customers in ${location.name}, the work may cover ${service.includes.join(", ")} after the technician reviews the actual condition of the unit. ${service.technicalSummary}`,
+        `${service.technicalSummary} Because service demand in ${location.context} can vary, we explain the scope clearly before moving ahead.`,
+        `A doorstep visit near ${location.landmark} usually focuses on ${service.includes.join(", ")}, along with checks that confirm whether the AC is performing better after the job.`
+      ],
+      seed,
+      1
+    ),
+    pickFrom(
+      [
+        `${service.valueSummary} For ${location.name} customers, timely booking can ${service.benefits.join(", ")}.`,
+        `Handled at the right time, ${service.sentence} in ${location.name} can ${service.benefits.join(", ")}, while reducing the chance of ${service.problems.join(", ")} becoming more expensive.`,
+        `${service.valueSummary} That matters in ${location.name}, where many customers call after noticing ${service.problems.join(", ")}.`,
+        `The practical benefit of early local support is simple: ${service.benefits.join(", ")}. That is why many users around ${location.landmark} book before the issue becomes disruptive.`
+      ],
+      seed,
+      2
+    )
+  ];
 }
 
 export function getCityFaqs(service) {
@@ -805,40 +810,39 @@ export function getAreaFaqs(service, location) {
 
 export function getTrustHighlights(service, location) {
   const seed = getSeed(service.slug, location?.slug ?? citySlug);
-  const locationLabel = location ? location.name : business.city;
   const response = location ? location.responseTime : "30-60 minutes";
 
   return pickMany(
     [
       {
         title: "Fast local response",
-        text: `Our team plans a response window of about ${response} for ${locationLabel}, depending on booking load and traffic.`
+        text: `We usually plan around a ${response} window, depending on traffic, route load, and open slots.`
       },
       {
-        title: "Doorstep support",
-        text: `We provide home, office, clinic, and shop visits so customers can book ${service.sentence} without carrying the unit anywhere.`
+        title: "Doorstep service",
+        text: `We visit homes, offices, clinics, and shops so customers can book ${service.sentence} without moving the unit anywhere.`
       },
       {
         title: "Experienced technicians",
-        text: `The service is handled by technicians familiar with split and window AC systems, common faults, and local service conditions.`
+        text: `Our team handles split AC and window AC systems with practical field experience across common cooling, leakage, and maintenance issues.`
       },
       {
-        title: "Clear scope before work",
-        text: `We explain what the visit includes, what we find on inspection, and the practical next step before moving ahead.`
+        title: "Clear work process",
+        text: `We explain the problem, the likely solution, and the next step before starting any service work.`
       },
       {
-        title: "Useful local coverage",
+        title: "Area familiarity",
         text: location
-          ? `Because we already serve ${location.context}, bookings in ${location.name} can be handled more directly.`
-          : `Citywide coverage connects the main service page with local area pages for easier booking and better internal linking.`
+          ? `Because we already serve ${location.context}, bookings around ${location.landmark} can be handled more smoothly.`
+          : `We cover major residential and commercial pockets across Vadodara with route-based service planning.`
       },
       {
         title: "Same-day availability",
-        text: `Same-day booking is available whenever open slots remain, especially for urgent cooling complaints.`
+        text: `Same-day booking is available whenever the schedule has open capacity, especially for urgent cooling complaints.`
       }
     ],
     seed,
-    3
+    4
   );
 }
 
@@ -858,17 +862,12 @@ export function getAllValidSlugs() {
   ];
 }
 
-export function getPrebuildSlugs() {
-  return [
-    ...services.map((service) => ({ slug: `${service.slug}-${citySlug}` })),
-    ...topLocations.map((locationSlug) => ({
-      slug: `ac-service-${locationSlug}`
-    }))
-  ];
-}
-
 export function getSlugContent(slug) {
-  const cityService = cityServiceSlugMap[slug];
+  const normalizedSlug = slug.replace(
+    /^ac-split-ac-repair(?=-)/,
+    serviceSlugAliases["ac-split-ac-repair"]
+  );
+  const cityService = cityServiceSlugMap[normalizedSlug];
 
   if (cityService) {
     return {
@@ -878,11 +877,11 @@ export function getSlugContent(slug) {
   }
 
   for (const [suffix, location] of locationSuffixes) {
-    if (!slug.endsWith(suffix)) {
+    if (!normalizedSlug.endsWith(suffix)) {
       continue;
     }
 
-    const serviceSlug = slug.slice(0, -suffix.length);
+    const serviceSlug = normalizedSlug.slice(0, -suffix.length);
     const service = serviceMap[serviceSlug];
 
     if (!service) {

@@ -1,17 +1,61 @@
 import { notFound } from "next/navigation";
-import { AreaPageTemplate } from "../../components/AreaPageTemplate";
+import { ServiceAreaPage } from "../../components/ServiceAreaPage";
 import { ServicePageTemplate } from "../../components/ServicePageTemplate";
-import { business, getSlugContent } from "../../data/site-data";
+import { business, locationMap, serviceMap } from "../../data/site-data";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
+const serviceSlugs = Object.keys(serviceMap).sort((a, b) => b.length - a.length);
 
-export function generateStaticParams() {
-  return [];
+function resolveSlugParts(slug) {
+  const matchedService = serviceSlugs.find((service) => slug.startsWith(`${service}-`));
+
+  if (!matchedService) {
+    return null;
+  }
+
+  const area = slug.slice(matchedService.length + 1);
+
+  if (!area) {
+    return null;
+  }
+
+  if (area === "vadodara") {
+    return {
+      service: matchedService,
+      area
+    };
+  }
+
+  if (!locationMap[area]) {
+    return null;
+  }
+
+  return {
+    service: matchedService,
+    area
+  };
 }
 
-export function generateMetadata({ params }) {
-  const resolved = getSlugContent(params.slug);
+export function generateStaticParams() {
+  const services = Object.keys(serviceMap);
+  const areas = Object.keys(locationMap).filter((area) => area !== "vadodara");
+  const paths = [];
+
+  for (const service of services) {
+    for (const area of areas) {
+      paths.push({
+        slug: `${service}-${area}`
+      });
+    }
+  }
+
+  return paths;
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const resolved = resolveSlugParts(slug);
 
   if (!resolved) {
     return {
@@ -19,33 +63,63 @@ export function generateMetadata({ params }) {
     };
   }
 
-  if (resolved.type === "service") {
-    const { service } = resolved;
+  const { service, area } = resolved;
+
+  if (area === "vadodara") {
+    const cityService = serviceMap[service];
+
+    if (!cityService) {
+      return {
+        title: `Page not found | ${business.name}`
+      };
+    }
 
     return {
-      title: `${service.name} in ${business.city} | Local AC Experts`,
-      description: `${service.shortDescription} Book ${service.sentence} in ${business.city} with ${business.name} for local support, clear service details, and quick call or WhatsApp booking.`
+      title: `${cityService.name} in ${business.city} | Urban AC`,
+      description: `${cityService.shortDescription} Book ${cityService.sentence} in ${business.city} with ${business.name} for local support and direct call or WhatsApp booking.`
     };
   }
 
-  const { service, location } = resolved;
+  if (!serviceMap[service] || !locationMap[area]) {
+    return {
+      title: `Page not found | ${business.name}`
+    };
+  }
 
   return {
-    title: `${service.name} in ${location.name}, ${business.city} | Fast Local Support`,
-    description: `Book ${service.sentence} in ${location.name}, ${business.city} with ${business.name}. Get localized service details, nearby area links, and direct booking by call or WhatsApp.`
+    title: `${service.replaceAll("-", " ")} in ${area} | Urban AC`,
+    description: `Best ${service.replaceAll("-", " ")} service in ${area}. Fast, reliable AC services by Urban AC.`
   };
 }
 
-export default function SlugPage({ params }) {
-  const resolved = getSlugContent(params.slug);
+export default async function SlugPage({ params }) {
+  const { slug } = await params;
+
+  if (!slug) {
+    notFound();
+  }
+
+  const resolved = resolveSlugParts(slug);
 
   if (!resolved) {
     notFound();
   }
 
-  if (resolved.type === "service") {
-    return <ServicePageTemplate service={resolved.service} />;
+  const { service, area } = resolved;
+
+  if (area === "vadodara") {
+    const cityService = serviceMap[service];
+
+    if (!cityService) {
+      return null;
+    }
+
+    return <ServicePageTemplate service={cityService} />;
   }
 
-  return <AreaPageTemplate service={resolved.service} location={resolved.location} />;
+  if (!serviceMap[service] || !locationMap[area]) {
+    notFound();
+  }
+
+  return <ServiceAreaPage service={service} area={area} />;
 }
