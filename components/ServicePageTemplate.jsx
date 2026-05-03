@@ -55,7 +55,7 @@ function TypeCard({ type }) {
 
 function FeatureCard({ item }) {
   return (
-    <div className="group relative flex items-start gap-[18px] overflow-hidden rounded-[18px] border border-[#eee] bg-[#f8fafc] px-7 py-6 transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]">
+    <div className="group relative flex cursor-default items-start gap-[18px] overflow-hidden rounded-[18px] border border-[#eee] bg-[#f8fafc] px-7 py-6 transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]">
       <div className="absolute inset-0 bg-[#f0fdf4] opacity-0 transition-all duration-300 group-active:opacity-100 md:group-hover:opacity-100" />
       <div className="relative flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-[14px] border-2 border-[#ebebeb] bg-white text-[18px] font-extrabold text-[#111] transition-all duration-300 group-active:border-[#111] group-active:bg-[#111] group-active:text-white md:group-hover:border-[#111] md:group-hover:bg-[#111] md:group-hover:text-white">
         {item.title.charAt(0)}
@@ -101,7 +101,7 @@ function RelatedServiceCard({ related }) {
 
 function ProcessCard({ num, title, text }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-[#eee] bg-white px-6 py-7 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#22c55e]/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+    <div className="group relative cursor-default overflow-hidden rounded-2xl border border-[#eee] bg-white px-6 py-7 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#22c55e]/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
       <div className="absolute inset-0 rounded-2xl bg-[#f0fdf4] opacity-0 transition-all duration-300 group-active:opacity-30 md:group-hover:opacity-30" />
       <div className="relative z-10 mb-3 flex items-center gap-3">
         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f1f5f9] text-[14px] font-semibold text-[#111] transition-all duration-300 group-active:bg-[#22c55e] group-active:text-white md:group-hover:bg-[#22c55e] md:group-hover:text-white">
