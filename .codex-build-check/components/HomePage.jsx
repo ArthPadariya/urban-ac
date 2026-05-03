@@ -134,21 +134,15 @@ export function HomePage() {
               </a>
             </div>
             <div className="flex flex-wrap items-center gap-2.5">
-  {[
-    "Same-day AC service in Vadodara",
-    "Expert Split & Window AC Technicians",
-    "Fast Cooling Issue Diagnosis & Repair",
-    "Service coverage across 20+ areas"
-  ].map((item) => (
-    <span
-      key={item}
-      className="inline-flex items-center gap-2 rounded-full border border-[#dfe7f5] bg-white px-4 py-2 text-sm font-medium text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)]"
-    >
-      <span className="text-green-500 text-sm">✔</span>
-      {item}
-    </span>
-  ))}
-</div>
+              {[" Same-day AC service in Vadodara", "Expert Split & Window AC Technicians", "Fast Cooling Issue Diagnosis & Repair", "Service coverage across 20+ areas"].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[#dfe7f5] bg-white px-4 py-2 text-sm font-medium text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div className="motion-safe:animate-[locationsFadeUp_0.82s_ease-out_both] [animation-delay:120ms]">
