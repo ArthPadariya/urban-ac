@@ -191,7 +191,40 @@ a {
   transition: width 0.3s ease;
 }
 
-.link-underline:hover::after,
-.nav-link:hover::after {
-  width: 100%;
+@media (hover: hover) and (pointer: fine) {
+  .link-underline:hover::after,
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  a:hover,
+  button:hover {
+    transform: none !important;
+  }
+
+  .service-hover-card:hover,
+  .checklist-card:hover {
+    box-shadow: inherit !important;
+    color: inherit !important;
+  }
+
+  .service-hover-card:hover .service-hover-card-overlay,
+  .group:hover .service-hover-card-overlay {
+    opacity: inherit !important;
+  }
+
+  .group:hover img,
+  .group:hover svg,
+  .group:hover span,
+  .group:hover p,
+  .group:hover div {
+    transform: none !important;
+  }
+
+  .link-underline:hover::after,
+  .nav-link:hover::after {
+    width: 0 !important;
+  }
 }

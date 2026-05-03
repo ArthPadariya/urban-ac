@@ -16,7 +16,11 @@ import { business, getMainServiceHref, locationMap, services } from "../data/sit
 const quickLinks = [
   { label: "About Us", href: "/about-us" },
   { label: "Contact Us", href: "/contact-us" },
-  { label: "FAQs", href: "/faqs" }
+  { label: "FAQs", href: "/faqs" },
+  { label: "Disclaimer", href: "/disclaimer" },
+  { label: "Refund Policy", href: "/refund-policy" },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
+  { label: "Privacy Policy", href: "/privacy-policy" }
 ];
 
 const socialLinks = [
@@ -144,7 +148,14 @@ export function SiteFooter() {
 
         <div className="mt-8 flex flex-col gap-2 border-t border-[#e5e7eb] pt-4 text-[13px] text-[#888] md:flex-row md:items-center md:justify-between">
           <p className="font-semibold">&copy; 2026 Urban AC. All rights reserved.</p>
-          <p className="font-semibold">Designed and Developed by APFP Universal</p>
+          <a
+            href="https://apfpuniversal.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#888]"
+          >
+            Designed and Developed by APFP Universal
+          </a>
         </div>
       </div>
     </footer>

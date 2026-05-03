@@ -1,6 +1,6 @@
 export const business = {
   name: "Urban AC",
-  phoneDisplay: "6354658540",
+  phoneDisplay: "+91 6354658540",
   phoneHref: "tel:+916354658540",
   whatsappHref: "https://wa.me/916354658540",
   address: "Waghodia Road, Vadodara, Gujarat 390025",
