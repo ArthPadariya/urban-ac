@@ -1,17 +1,14 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
+import { HomeServiceCards } from "./HomeServiceCards";
 import { RotatingHeroVisual } from "./RotatingHeroVisual";
 import { LocationsMotionStyles } from "./LocationsMotionStyles";
 import {
   business,
-  getMainServiceHref,
   locations,
   services,
   topLocations
 } from "../data/site-data";
-
-const serviceCardClass =
-  "service-hover-card group relative rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] ease-out hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent active:scale-[0.97] [-webkit-tap-highlight-color:transparent]";
 
 const whyCardClass =
   "group relative overflow-hidden rounded-2xl border border-[#e5e7eb] bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.01] hover:border-transparent hover:shadow-[0_18px_38px_rgba(15,23,42,0.1)] active:scale-[0.98]";
@@ -204,54 +201,7 @@ export function HomePage() {
             title="Professional AC services across Vadodara."
             description="Choose the service you need, then move into the main city page or local area route for quicker booking."
           />
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((service, index) => (
-              <article
-                key={service.slug}
-                className={`${serviceCardClass} motion-safe:animate-[locationsFadeUp_0.74s_ease-out_both]`}
-                style={{ animationDelay: `${index * 75}ms`, WebkitTapHighlightColor: "transparent" }}
-              >
-                  <div className="service-hover-card-overlay absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50 via-transparent to-transparent opacity-0 transition-opacity duration-300 md:group-hover:opacity-100" />
-                  <div className="relative flex h-full flex-col gap-4">
-                  <span className="service-hover-badge inline-flex w-fit rounded-full border border-[#dfe7f5] bg-[#F4F8FF] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#555]">
-                    Urban AC Service
-                  </span>
-                  <h3 className="text-2xl font-bold tracking-tight text-[#111] transition-colors duration-300">
-                    {service.name}
-                  </h3>
-                  <p className="text-sm leading-7 text-[#555]">{service.shortDescription}</p>
-                  <ul className="space-y-2">
-                    {service.types.slice(0, 3).map((type) => (
-                      <li key={type} className="flex items-start gap-2 text-sm leading-relaxed text-[#666] transition-colors duration-300">
-                        <span className="service-hover-dot mt-2 h-1.5 w-1.5 rounded-full bg-[#0B0B0B]" />
-                        <span>{type}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={getMainServiceHref(service.slug)}
-                    className="mt-auto [-webkit-tap-highlight-color:transparent]"
-                    style={{ WebkitTapHighlightColor: "transparent" }}
-                  >
-                    <div className="flex items-center gap-1 text-sm font-bold text-[#0B0B0B] transition-all duration-300 group-hover:gap-2">
-                      <span>Explore {service.name}</span>
-                      <svg
-                        className="transition-transform duration-300 group-hover:translate-x-1"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </div>
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
+          <HomeServiceCards services={services} />
         </div>
       </section>
 
