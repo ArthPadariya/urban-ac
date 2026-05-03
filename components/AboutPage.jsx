@@ -70,12 +70,12 @@ export function AboutPage() {
               Our goal is simple - deliver reliable cooling solutions with honest pricing and expert technicians.
             </p>
             <div className="mb-8 flex flex-wrap gap-3">
-              <Link
-                href="/contact-us"
+              <a
+                href={business.phoneHref}
                 className="inline-flex items-center justify-center rounded-xl bg-[#111] px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-black active:scale-[0.97]"
               >
                 Call Now
-              </Link>
+              </a>
               <a
                 href={business.whatsappHref}
                 className="inline-flex items-center justify-center rounded-xl bg-[#22c55e] px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] active:scale-[0.97]"
@@ -293,12 +293,12 @@ export function AboutPage() {
                   Book instantly via call or WhatsApp and get quick doorstep support.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact-us"
+                  <a
+                    href={business.phoneHref}
                     className="inline-flex items-center justify-center rounded-[14px] bg-white px-6 py-3.5 text-sm font-bold text-[#111] shadow-[0_4px_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#f5f5f5] active:scale-[0.97]"
                   >
                     Call Now
-                  </Link>
+                  </a>
                   <a
                     href={business.whatsappHref}
                     className="inline-flex items-center justify-center rounded-[14px] bg-[#22c55e] px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] active:scale-[0.97]"

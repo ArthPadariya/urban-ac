@@ -154,12 +154,12 @@ export function ContactPage() {
               Fast support, local service routing, and quick response for repair, service, installation, and cleaning bookings.
             </p>
             <div className="mb-8 flex flex-wrap gap-3">
-              <Link
-                href="/contact-us"
+              <a
+                href={business.phoneHref}
                 className="inline-flex items-center justify-center rounded-xl bg-[#111] px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-black active:scale-[0.97]"
               >
                 Call Now
-              </Link>
+              </a>
               <a
                 href={business.whatsappHref}
                 className="inline-flex items-center justify-center rounded-xl bg-[#22c55e] px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] active:scale-[0.97]"
@@ -305,9 +305,9 @@ export function ContactPage() {
                       name="message"
                       rows="5"
                       placeholder=" "
-                      className="peer w-full rounded-2xl border border-white/70 bg-white/85 px-4 pb-4 pt-6 text-sm font-medium text-[#111] shadow-[0_12px_28px_rgba(15,23,42,0.06)] outline-none transition-all duration-300 placeholder:text-transparent focus:border-[#22c55e]/50 focus:bg-white focus:shadow-[0_18px_40px_rgba(34,197,94,0.12)]"
+                      className="peer w-full rounded-2xl border border-white/70 bg-white/85 px-4 pb-4 pt-7 text-sm font-medium text-[#111] shadow-[0_12px_28px_rgba(15,23,42,0.06)] outline-none transition-all duration-300 placeholder:text-transparent focus:border-[#22c55e]/50 focus:bg-white focus:shadow-[0_18px_40px_rgba(34,197,94,0.12)]"
                     />
-                    <span className="pointer-events-none absolute left-4 top-6 text-sm text-[#777] transition-all duration-300 peer-focus:top-4 peer-focus:text-[11px] peer-focus:font-semibold peer-focus:uppercase peer-focus:tracking-[0.08em] peer-focus:text-[#16a34a] peer-[&:not(:placeholder-shown)]:top-4 peer-[&:not(:placeholder-shown)]:text-[11px] peer-[&:not(:placeholder-shown)]:font-semibold peer-[&:not(:placeholder-shown)]:uppercase peer-[&:not(:placeholder-shown)]:tracking-[0.08em] peer-[&:not(:placeholder-shown)]:text-[#16a34a]">
+                    <span className="pointer-events-none absolute left-3 top-2 z-10 rounded bg-white px-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#16a34a]">
                       Message (optional)
                     </span>
                   </label>
@@ -340,7 +340,7 @@ export function ContactPage() {
               />
               <div className="relative mt-4 rounded-2xl border border-[#eef2f7] bg-[#f8fbff] p-5">
                 <div className="text-sm font-bold text-[#111]">Urban AC - Vadodara</div>
-                <div className="mt-2 text-sm leading-6 text-[#666]">{business.address}</div>
+                <div className="mt-2 whitespace-pre-line text-sm leading-6 text-[#666]">{business.address}</div>
                 <div className="mt-3 text-sm leading-6 text-[#666]">Service hours: {business.serviceHours}</div>
               </div>
             </div>
@@ -363,12 +363,12 @@ export function ContactPage() {
                   Call or WhatsApp now and get connected to quick local booking support in Vadodara.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact-us"
+                  <a
+                    href={business.phoneHref}
                     className="inline-flex items-center justify-center rounded-[14px] bg-white px-6 py-3.5 text-sm font-bold text-[#111] shadow-[0_4px_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#f5f5f5] active:scale-[0.97]"
                   >
                     Call Now
-                  </Link>
+                  </a>
                   <a
                     href={business.whatsappHref}
                     className="inline-flex items-center justify-center rounded-[14px] bg-[#22c55e] px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] active:scale-[0.97]"
@@ -429,12 +429,12 @@ export function ContactPage() {
               We can help you choose the right AC service and the fastest local route for your area.
             </p>
             <div className="mt-8 flex justify-center">
-              <Link
-                href="/contact-us"
+              <a
+                href={business.phoneHref}
                 className="inline-flex items-center justify-center rounded-xl bg-[#111] px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-black hover:shadow-[0_16px_36px_rgba(0,0,0,0.18)] active:scale-[0.97]"
               >
                 Contact Now
-              </Link>
+              </a>
             </div>
           </div>
         </div>

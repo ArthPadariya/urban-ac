@@ -120,12 +120,12 @@ export function HomePage() {
             </p>
             
             <div className="mb-6 flex flex-wrap gap-3">
-              <Link
-                href="/contact-us"
+              <a
+                href={business.phoneHref}
                 className="inline-flex items-center justify-center rounded-xl bg-[#0B0B0B] px-6 py-3 text-sm font-bold text-white shadow-[0_14px_28px_rgba(11,11,11,0.14)] transition-all duration-300 hover:scale-[1.03] hover:bg-black hover:shadow-[0_18px_34px_rgba(11,11,11,0.18)] active:scale-[0.97]"
               >
                 Call Now
-              </Link>
+              </a>
               <a
                 href={business.whatsappHref}
                 className="inline-flex items-center justify-center rounded-xl bg-[#22c55e] px-6 py-3 text-sm font-bold text-white shadow-[0_14px_28px_rgba(34,197,94,0.18)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] hover:shadow-[0_18px_34px_rgba(34,197,94,0.24)] active:scale-[0.97]"
@@ -219,10 +219,10 @@ export function HomePage() {
                 <Link
                   key={slug}
                   href={`/ac-service-${slug}`}
-                  className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-3 py-2.5 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]"
+                  className="mx-auto flex min-h-[44px] w-full max-w-[140px] items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-3 py-2 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]"
                   style={{ animationDelay: `${index * 45}ms` }}
                 >
-                  <span className="flex items-center gap-1">
+                  <span className="flex max-w-full items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap">
                     📍 {location.name}
                   </span>
                 </Link>
@@ -234,10 +234,10 @@ export function HomePage() {
                 <Link
                   key={location.slug}
                   href={`/ac-service-${location.slug}`}
-                  className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-3 py-2.5 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]"
+                  className="mx-auto flex min-h-[44px] w-full max-w-[140px] items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-3 py-2 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]"
                   style={{ animationDelay: `${(index + topLocations.length) * 45}ms` }}
                 >
-                  <span className="flex items-center gap-1">
+                  <span className="flex max-w-full items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap">
                     📍 {location.name}
                   </span>
                 </Link>
@@ -334,12 +334,12 @@ export function HomePage() {
                 </p>
               </div>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/contact-us"
+                <a
+                  href={business.phoneHref}
                   className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#0B0B0B] transition-all duration-300 hover:scale-[1.03] hover:bg-[#f5f5f5] active:scale-[0.97]"
                 >
                   Call Now
-                </Link>
+                </a>
                 <a
                   href={business.whatsappHref}
                   className="inline-flex items-center justify-center rounded-xl bg-[#22c55e] px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] active:scale-[0.97]"

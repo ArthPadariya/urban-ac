@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { business } from "../data/site-data";
 
 function PhoneIcon() {
@@ -70,13 +69,13 @@ export function SamaServiceCta({
 
             <div className="flex w-full flex-col gap-6 md:w-auto md:flex-row md:items-center md:justify-end md:gap-5">
               <div className="flex w-full flex-col items-start justify-center gap-3.5 md:w-auto md:min-w-[220px]">
-                <Link
-                  href="/contact-us"
+                <a
+                  href={business.phoneHref}
                   className="flex items-center justify-center gap-2 rounded-[14px] bg-white px-8 py-4 text-[15px] font-extrabold text-[#111] shadow-[0_4px_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#f5f5f5] active:scale-[0.98] active:bg-[#ececec]"
                 >
                   <PhoneIcon />
                   {primaryLabel}
-                </Link>
+                </a>
                 <a
                   href={business.whatsappHref}
                   className="flex items-center justify-center gap-2 rounded-[14px] bg-[#22c55e] px-8 py-4 text-[15px] font-extrabold text-white shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#16a34a] active:scale-[0.98] active:bg-[#15803d]"

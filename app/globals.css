@@ -151,6 +151,11 @@ a {
     box-shadow: var(--service-card-hover-shadow) !important;
   }
 
+  .home-service-card:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 22px 48px rgba(37, 99, 235, 0.22) !important;
+  }
+
   .service-hover-card:hover h1,
   .service-hover-card:hover h2,
   .service-hover-card:hover h3,
@@ -227,6 +232,11 @@ a {
     background: var(--service-card-hover-bg) !important;
     color: #ffffff !important;
     box-shadow: var(--service-card-hover-shadow) !important;
+  }
+
+  .home-service-card:active {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 22px 48px rgba(37, 99, 235, 0.22) !important;
   }
 
   .service-hover-card:active h1,

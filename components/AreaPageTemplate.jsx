@@ -38,9 +38,9 @@ export function AreaPageTemplate({ service, location }) {
               </h1>
               <p className="max-w-3xl text-sm leading-7 text-smoke md:text-base">{intro}</p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/contact-us" className="btn-primary">
+                <a href={business.phoneHref} className="btn-primary">
                   Call Now
-                </Link>
+                </a>
                 <a href={business.whatsappHref} className="btn-whatsapp">
                   WhatsApp
                 </a>
@@ -132,9 +132,9 @@ export function AreaPageTemplate({ service, location }) {
               <Link
                 key={nearby.slug}
                 href={getEntryLocationHref(service.slug, nearby.slug)}
-                className="pill-link flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap px-3 text-center hover:border-ink"
+                className="pill-link mx-auto flex min-h-[44px] w-full max-w-[140px] items-center justify-center gap-1 overflow-hidden whitespace-nowrap px-3 py-2 text-center text-sm hover:border-ink"
               >
-                <span className="flex items-center gap-1">📍 {nearby.name}</span>
+                <span className="flex max-w-full items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap">📍 {nearby.name}</span>
               </Link>
             ))}
           </div>
@@ -184,9 +184,9 @@ export function AreaPageTemplate({ service, location }) {
               <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.05em]">{cta.title}</h2>
               <p className="mt-4 text-sm leading-7 text-white/70">{cta.text}</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact-us" className="btn-primary">
+                <a href={business.phoneHref} className="btn-primary">
                   Call Now
-                </Link>
+                </a>
                 <a href={business.whatsappHref} className="btn-whatsapp">
                   WhatsApp
                 </a>

@@ -1,35 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { getMainServiceHref } from "../data/site-data";
-
-const cardVariants = [
-  {
-    wrapper: "bg-[linear-gradient(135deg,#2563eb_0%,#1d4ed8_100%)] shadow-[0_22px_48px_rgba(37,99,235,0.22)]",
-    badge: "border-white/25 bg-white/10 text-white",
-    dot: "bg-white"
-  },
-  {
-    wrapper: "bg-[linear-gradient(135deg,#f97316_0%,#ea580c_100%)] shadow-[0_22px_48px_rgba(249,115,22,0.24)]",
-    badge: "border-white/25 bg-white/10 text-white",
-    dot: "bg-white"
-  },
-  {
-    wrapper: "bg-[linear-gradient(135deg,#2563eb_0%,#1d4ed8_100%)] shadow-[0_22px_48px_rgba(37,99,235,0.22)]",
-    badge: "border-white/25 bg-white/10 text-white",
-    dot: "bg-white"
-  },
-  {
-    wrapper: "bg-[linear-gradient(135deg,#22c55e_0%,#16a34a_100%)] shadow-[0_22px_48px_rgba(34,197,94,0.24)]",
-    badge: "border-white/25 bg-white/10 text-white",
-    dot: "bg-white"
-  }
-];
 
 export function HomeServiceCards({ services }) {
   const [activeCard, setActiveCard] = useState(null);
   const containerRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     function handlePointerDown(event) {
@@ -53,33 +32,38 @@ export function HomeServiceCards({ services }) {
     };
   }, []);
 
-  function handleCardClick(event, slug) {
+  function handleCardClick(event, slug, href) {
     if (!window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
       return;
     }
 
+    event.preventDefault();
+
     if (activeCard === slug) {
-      setActiveCard(null);
+      setTimeout(() => {
+        router.push(href);
+      }, 120);
       return;
     }
 
-    event.preventDefault();
     setActiveCard(slug);
   }
 
   return (
     <div ref={containerRef} className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
       {services.map((service, index) => {
-        const variant = cardVariants[index % cardVariants.length];
         const isActive = activeCard === service.slug;
+        const href = getMainServiceHref(service.slug);
 
         return (
           <Link
             key={service.slug}
-            href={getMainServiceHref(service.slug)}
-            onClick={(event) => handleCardClick(event, service.slug)}
-            className={`service-hover-card group relative rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-in-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent active:scale-[0.97] motion-safe:animate-[locationsFadeUp_0.74s_ease-out_both] [-webkit-tap-highlight-color:transparent] ${
-              isActive ? `${variant.wrapper} border-transparent text-white` : ""
+            href={href}
+            onClick={(event) => handleCardClick(event, service.slug, href)}
+            className={`home-service-card service-hover-card group relative cursor-pointer select-none rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-in-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent hover:bg-gradient-to-br hover:from-[#2563eb] hover:to-[#1d4ed8] active:scale-[0.97] active:bg-gradient-to-br active:from-[#2563eb] active:to-[#1d4ed8] active:text-white motion-safe:animate-[locationsFadeUp_0.74s_ease-out_both] ${
+              isActive
+                ? "border-transparent bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] text-white shadow-[0_22px_48px_rgba(37,99,235,0.22)]"
+                : ""
             }`}
             style={{ animationDelay: `${index * 75}ms`, WebkitTapHighlightColor: "transparent" }}
           >
@@ -91,7 +75,7 @@ export function HomeServiceCards({ services }) {
             <div className="relative flex h-full flex-col gap-4">
               <span
                 className={`service-hover-badge inline-flex w-fit rounded-full border border-[#dfe7f5] bg-[#F4F8FF] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#555] transition-colors duration-300 group-hover:text-white group-active:text-white ${
-                  isActive ? variant.badge : ""
+                  isActive ? "border-white/25 bg-white/10 text-white" : ""
                 }`}
               >
                 Urban AC Service
@@ -104,8 +88,8 @@ export function HomeServiceCards({ services }) {
                 {service.name}
               </h3>
               <p
-                className={`text-sm leading-7 text-[#555] transition-colors duration-300 group-hover:text-white/85 group-active:text-white/85 ${
-                  isActive ? "text-white/90" : ""
+                className={`text-sm leading-7 text-[#555] transition-colors duration-300 group-hover:text-white group-active:text-white ${
+                  isActive ? "text-white" : ""
                 }`}
               >
                 {service.shortDescription}
@@ -114,11 +98,11 @@ export function HomeServiceCards({ services }) {
                 {service.types.slice(0, 3).map((type) => (
                   <li
                     key={type}
-                    className={`flex items-start gap-2 text-sm leading-relaxed text-[#666] transition-colors duration-300 group-hover:text-white/80 group-active:text-white/80 ${
-                      isActive ? "text-white/85" : ""
+                    className={`flex items-start gap-2 text-sm leading-relaxed text-[#666] transition-colors duration-300 group-hover:text-white group-active:text-white ${
+                      isActive ? "text-white" : ""
                     }`}
                   >
-                    <span className={`service-hover-dot mt-2 h-1.5 w-1.5 rounded-full bg-[#0B0B0B] ${isActive ? variant.dot : ""}`} />
+                    <span className={`service-hover-dot mt-2 h-1.5 w-1.5 rounded-full bg-[#0B0B0B] ${isActive ? "bg-white" : ""}`} />
                     <span>{type}</span>
                   </li>
                 ))}

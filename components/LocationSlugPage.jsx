@@ -184,12 +184,12 @@ export function LocationSlugPage({ location }) {
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/contact-us"
+                <a
+                  href={business.phoneHref}
                   className="inline-flex items-center justify-center rounded-[14px] bg-white px-6 py-3.5 text-sm font-bold text-[#111] transition-all duration-300 hover:scale-[1.03] hover:bg-[#f5f5f5] active:scale-[0.97]"
                 >
                   Call Now
-                </Link>
+                </a>
                 <a
                   href={business.whatsappHref}
                   className="inline-flex items-center justify-center rounded-[14px] bg-[#22c55e] px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-[#16a34a] active:scale-[0.97]"

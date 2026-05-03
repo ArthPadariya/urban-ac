@@ -75,7 +75,7 @@ export function SiteFooter() {
               </div>
               <div className="flex items-start gap-2 text-sm text-[#555]">
                 <FaMapMarkerAlt className="mt-[2px] text-[#111]" />
-                <span>{business.address}</span>
+                <span className="max-w-[260px] whitespace-pre-line leading-6">{business.address}</span>
               </div>
               <div className="flex items-start gap-2 text-sm text-[#555]">
                 <FaClock className="mt-[2px] text-[#111]" />

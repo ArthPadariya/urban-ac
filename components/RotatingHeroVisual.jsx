@@ -44,7 +44,7 @@ export function RotatingHeroVisual() {
         </div>
         <div
           key={slide.src}
-          className="relative flex min-h-[430px] items-end rounded-[24px] bg-white/60 px-3 pt-12 motion-safe:animate-[locationsFadeUp_0.55s_ease-out_both] md:min-h-[520px]"
+          className="relative flex min-h-[430px] items-end rounded-[24px] bg-white/60 px-3 pb-4 pt-14 motion-safe:animate-[locationsFadeUp_0.55s_ease-out_both] md:min-h-[520px]"
         >
           <Image
             src={slide.src}
@@ -52,11 +52,11 @@ export function RotatingHeroVisual() {
             width={832}
             height={1280}
             priority
-            className="mx-auto h-[310px] w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03] md:h-[410px]"
+            className="mx-auto h-[300px] w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03] md:h-[410px]"
           />
-          <div className="absolute bottom-8 left-8 right-8 max-w-[90%] rounded-xl bg-black/70 px-5 py-4 shadow-lg backdrop-blur-md">
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">{slide.title}</h2>
-            <p className="max-w-md text-sm leading-7 text-white/75">{slide.text}</p>
+          <div className="absolute bottom-4 left-4 right-4 max-w-[80%] rounded-xl bg-black/70 px-4 py-3 shadow-lg backdrop-blur-md md:bottom-8 md:left-8 md:right-8 md:max-w-[90%] md:px-5 md:py-4">
+            <h2 className="mb-1 text-base font-bold tracking-tight text-white md:mb-2 md:text-2xl">{slide.title}</h2>
+            <p className="max-w-md text-sm leading-6 text-white md:leading-7">{slide.text}</p>
           </div>
         </div>
       </div>

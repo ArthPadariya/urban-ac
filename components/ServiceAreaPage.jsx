@@ -205,9 +205,9 @@ function AreaPill({ area, href }) {
   return (
     <Link
       href={href}
-      className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border-[1.5px] border-[#ddd] bg-white px-3 py-2.5 text-center text-[13px] font-semibold text-[#555] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#111] hover:bg-[#111] hover:text-white hover:shadow-[0_12px_24px_rgba(17,17,17,0.10)] active:scale-[0.98] active:bg-[#111] active:text-white"
+      className="mx-auto flex min-h-[44px] w-full max-w-[140px] items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-full border-[1.5px] border-[#ddd] bg-white px-3 py-2 text-center text-sm font-semibold text-[#555] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#111] hover:bg-[#111] hover:text-white hover:shadow-[0_12px_24px_rgba(17,17,17,0.10)] active:scale-[0.98] active:bg-[#111] active:text-white"
     >
-      <span className="flex items-center gap-1">
+      <span className="flex max-w-full items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap">
         {"\uD83D\uDCCD"} {area}
       </span>
     </Link>
@@ -308,15 +308,15 @@ export function ServiceAreaPage({ service, area }) {
               <p className="mb-9 max-w-[460px] text-[17px] leading-[1.75] text-white/60">{content.hero.description}</p>
 
               <div className="mb-12 flex flex-wrap gap-3">
-                <Link
-                  href="/contact-us"
+                <a
+                  href={business.phoneHref}
                   className="inline-flex items-center gap-2 rounded-[14px] bg-white px-7 py-3.5 text-[15px] font-bold text-[#111] shadow-[0_4px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(255,255,255,0.2)] active:scale-[0.98] active:bg-[#f3f4f6]"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   {content.hero.primaryLabel}
-                </Link>
+                </a>
                 <a
                   href={business.whatsappHref}
                   className="inline-flex items-center gap-2 rounded-[14px] border-[1.5px] border-[#22c55e]/40 bg-[#22c55e]/15 px-7 py-3.5 text-[15px] font-bold text-[#22c55e] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#22c55e] hover:text-white active:scale-[0.98] active:bg-[#16a34a] active:text-white"

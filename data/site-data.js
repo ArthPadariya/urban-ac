@@ -3,7 +3,9 @@ export const business = {
   phoneDisplay: "+91 6354658540",
   phoneHref: "tel:+916354658540",
   whatsappHref: "https://wa.me/916354658540",
-  address: "Waghodia Road, Vadodara, Gujarat 390025",
+  address: `Block No. 03/25, BSUP Aawash,
+Opp Kanha Height, Kapurai Road,
+Vadodara – 390025`,
   serviceHours: "7:00 AM to 10:00 PM",
   city: "Vadodara",
   state: "Gujarat"

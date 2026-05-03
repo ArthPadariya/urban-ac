@@ -76,9 +76,9 @@ function AreaPill({ href, label }) {
   return (
     <Link
       href={href}
-      className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border-[1.5px] border-[#ddd] bg-white px-3 py-2.5 text-center text-[13px] font-semibold text-[#555] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#111] hover:bg-[#111] hover:text-white hover:shadow-[0_12px_24px_rgba(17,17,17,0.10)] active:scale-[0.98] active:bg-[#111] active:text-white"
+      className="mx-auto flex min-h-[44px] w-full max-w-[140px] items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-full border-[1.5px] border-[#ddd] bg-white px-3 py-2 text-center text-sm font-semibold text-[#555] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#111] hover:bg-[#111] hover:text-white hover:shadow-[0_12px_24px_rgba(17,17,17,0.10)] active:scale-[0.98] active:bg-[#111] active:text-white"
     >
-      <span className="flex items-center gap-1">{"\uD83D\uDCCD"} {label}</span>
+      <span className="flex max-w-full items-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap">{"\uD83D\uDCCD"} {label}</span>
     </Link>
   );
 }
@@ -152,12 +152,12 @@ export function ServicePageTemplate({ service }) {
               </h1>
               <p className="max-w-3xl text-[17px] leading-[1.75] text-white/60">{intro}</p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Link
-                  href="/contact-us"
+                <a
+                  href={business.phoneHref}
                   className="inline-flex items-center gap-2 rounded-[14px] bg-white px-7 py-3.5 text-[15px] font-bold text-[#111] shadow-[0_4px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(255,255,255,0.2)] active:scale-[0.98] active:bg-[#f3f4f6]"
                 >
                   Call Now
-                </Link>
+                </a>
                 <a
                   href={business.whatsappHref}
                   className="inline-flex items-center gap-2 rounded-[14px] border-[1.5px] border-[#22c55e]/40 bg-[#22c55e]/15 px-7 py-3.5 text-[15px] font-bold text-[#22c55e] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#22c55e] hover:text-white active:scale-[0.98] active:bg-[#16a34a] active:text-white"
@@ -291,12 +291,12 @@ export function ServicePageTemplate({ service }) {
                 </h2>
                 <p className="mt-4 text-sm leading-7 text-white/70">{cta.text}</p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact-us"
+                  <a
+                    href={business.phoneHref}
                     className="inline-flex items-center gap-2 rounded-[14px] bg-white px-7 py-3.5 text-[15px] font-bold text-[#111] shadow-[0_4px_24px_rgba(255,255,255,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(255,255,255,0.2)] active:scale-[0.98] active:bg-[#f3f4f6]"
                   >
                     Call Now
-                  </Link>
+                  </a>
                   <a
                     href={business.whatsappHref}
                     className="inline-flex items-center gap-2 rounded-[14px] border-[1.5px] border-[#22c55e]/40 bg-[#22c55e]/15 px-7 py-3.5 text-[15px] font-bold text-[#22c55e] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#22c55e] hover:text-white active:scale-[0.98] active:bg-[#16a34a] active:text-white"
