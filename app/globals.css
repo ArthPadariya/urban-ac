@@ -182,6 +182,47 @@ a {
   button:hover {
     transform: none !important;
   }
+  /* ACTIVE STATE (JS CONTROLLED - SAME AS DESKTOP HOVER) */
+
+.service-card-active {
+  background: var(--service-card-hover-bg) !important;
+  color: #ffffff !important;
+  box-shadow: var(--service-card-hover-shadow) !important;
+  border-color: transparent !important;
+}
+
+.service-card-active h1,
+.service-card-active h2,
+.service-card-active h3,
+.service-card-active h4,
+.service-card-active h5,
+.service-card-active h6,
+.service-card-active p,
+.service-card-active span,
+.service-card-active a,
+.service-card-active li,
+.service-card-active div {
+  color: #ffffff !important;
+}
+
+.service-card-active svg {
+  stroke: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.service-card-active .service-hover-badge {
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+.service-card-active .service-hover-dot {
+  background: #ffffff !important;
+}
+
+.service-card-active .service-hover-card-overlay {
+  opacity: 0 !important;
+}
 
   .service-hover-card:hover {
     box-shadow: inherit !important;
