@@ -3,7 +3,7 @@ import { getMainServiceHref } from "../data/site-data";
 import { LocationsMotionStyles } from "./LocationsMotionStyles";
 
 const serviceCardClass =
-  "service-hover-card group relative mx-auto block h-full w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#e5e7eb] bg-white px-4 py-4 text-[#111] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-200 ease-out active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:rounded-2xl md:px-6 md:py-6 md:duration-300 md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:border-transparent";
+  "service-hover-card group relative mx-auto block h-full w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#e5e7eb] bg-white px-4 py-4 text-[#111] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-200 ease-out active:scale-[0.97] md:max-w-none md:rounded-2xl md:px-6 md:py-6 md:duration-300 md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:border-transparent";
 
 const servicesPageData = [
   {

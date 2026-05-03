@@ -223,6 +223,45 @@ a {
     transform: none !important;
   }
 
+  .service-hover-card:active {
+    background: var(--service-card-hover-bg) !important;
+    color: #ffffff !important;
+    box-shadow: var(--service-card-hover-shadow) !important;
+  }
+
+  .service-hover-card:active h1,
+  .service-hover-card:active h2,
+  .service-hover-card:active h3,
+  .service-hover-card:active h4,
+  .service-hover-card:active h5,
+  .service-hover-card:active h6,
+  .service-hover-card:active p,
+  .service-hover-card:active span,
+  .service-hover-card:active a,
+  .service-hover-card:active li,
+  .service-hover-card:active div {
+    color: #ffffff !important;
+  }
+
+  .service-hover-card:active svg {
+    stroke: #ffffff !important;
+    fill: #ffffff !important;
+  }
+
+  .service-hover-card:active .service-hover-badge {
+    border-color: rgba(255, 255, 255, 0.28) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+  }
+
+  .service-hover-card:active .service-hover-dot {
+    background: #ffffff !important;
+  }
+
+  .service-hover-card:active .service-hover-card-overlay {
+    opacity: 0 !important;
+  }
+
   .link-underline:hover::after,
   .nav-link:hover::after {
     width: 0 !important;

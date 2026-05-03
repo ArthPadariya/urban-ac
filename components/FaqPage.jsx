@@ -344,18 +344,18 @@ export function FaqPage() {
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="group relative overflow-hidden rounded-[30px] bg-[linear-gradient(135deg,#0a0a0a_0%,#111827_60%,#0f1a12_100%)] px-8 py-10 shadow-[0_28px_80px_rgba(0,0,0,0.24)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_34px_90px_rgba(0,0,0,0.28)] md:px-10 lg:px-12">
-            <div className="pointer-events-none absolute -left-10 top-0 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.18),transparent_70%)]" />
-            <div className="pointer-events-none absolute right-20 top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(34,197,94,0.18),transparent_72%)]" />
+          <div className="group relative overflow-hidden rounded-[30px] bg-[#0f172a] px-8 py-10 shadow-[0_28px_80px_rgba(0,0,0,0.24)] transition-all duration-300 md:bg-[linear-gradient(135deg,#0a0a0a_0%,#111827_60%,#0f1a12_100%)] md:hover:-translate-y-1 md:hover:shadow-[0_34px_90px_rgba(0,0,0,0.28)] md:px-10 lg:px-12">
+            <div className="pointer-events-none absolute -left-10 top-0 hidden h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.18),transparent_70%)] md:block" />
+            <div className="pointer-events-none absolute right-20 top-10 hidden h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(34,197,94,0.18),transparent_72%)] md:block" />
             <div className="relative grid items-center gap-8 md:grid-cols-[1fr_250px] lg:grid-cols-[1fr_320px]">
-              <div className="max-w-2xl">
+              <div className="relative z-10 max-w-2xl">
                 <span className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
                   Urgent Support
                 </span>
                 <h2 className="mb-4 text-[clamp(2rem,4vw,3rem)] font-black leading-[1.08] tracking-[-0.03em] text-white">
                   Need urgent AC service?
                 </h2>
-                <p className="max-w-xl text-[15px] leading-7 text-white/72 md:text-base">
+                <p className="max-w-xl text-[15px] leading-7 text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] md:text-base md:text-white/72 md:[text-shadow:none]">
                   Call or WhatsApp now and get connected to quick local booking support in Vadodara.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">

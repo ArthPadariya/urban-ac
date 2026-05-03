@@ -352,14 +352,14 @@ export function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="group relative overflow-hidden rounded-2xl bg-[#0f172a] px-6 py-6 shadow-[0_28px_80px_rgba(0,0,0,0.24)] transition-all duration-300 md:rounded-[30px] md:bg-[linear-gradient(135deg,#0a0a0a_0%,#111827_60%,#0f1a12_100%)] md:px-10 md:py-10 md:hover:-translate-y-1 md:hover:shadow-[0_34px_90px_rgba(0,0,0,0.28)] lg:px-12">
             <div className="relative grid items-center gap-8 md:grid-cols-[1fr_250px] lg:grid-cols-[1fr_320px]">
-              <div className="max-w-2xl">
+              <div className="relative z-10 max-w-2xl">
                 <span className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
                   Urgent Support
                 </span>
                 <h2 className="mb-4 text-[clamp(2rem,4vw,3rem)] font-black leading-[1.08] tracking-[-0.03em] text-white">
                   Need Urgent AC Service?
                 </h2>
-                <p className="max-w-xl text-sm leading-relaxed text-white/80 md:text-base md:leading-7">
+                <p className="max-w-xl text-sm leading-relaxed text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] md:text-base md:leading-7 md:text-white/80 md:[text-shadow:none]">
                   Call or WhatsApp now and get connected to quick local booking support in Vadodara.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">

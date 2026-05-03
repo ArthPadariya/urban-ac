@@ -42,7 +42,7 @@ function TypeCard({ type }) {
   return (
     <Link
       href="/contact-us"
-      className="service-hover-card group relative mx-auto block w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#ebebeb] bg-white px-4 py-4 text-[#111] transition-all duration-200 ease-out active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:rounded-[20px] md:px-7 md:py-8 md:duration-300 md:hover:-translate-y-1 md:hover:border-transparent md:hover:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
+      className="service-hover-card group relative mx-auto block w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#ebebeb] bg-white px-4 py-4 text-[#111] transition-all duration-200 ease-out active:scale-[0.97] md:max-w-none md:rounded-[20px] md:px-7 md:py-8 md:duration-300 md:hover:-translate-y-1 md:hover:border-transparent md:hover:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
       style={{ "--service-card-hover-bg": "linear-gradient(135deg,#0f172a,#1e293b)" }}
     >
       <div className="service-hover-card-overlay absolute inset-0 rounded-xl bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] opacity-0 transition-opacity duration-300 md:rounded-[20px] md:group-hover:opacity-100" />
@@ -55,23 +55,20 @@ function TypeCard({ type }) {
 
 function FeatureCard({ item }) {
   return (
-    <Link
-      href="/contact-us"
-      className="group relative mx-auto flex w-full max-w-[90%] cursor-pointer items-start gap-4 overflow-hidden rounded-xl border border-[#eee] bg-[#f8fafc] px-4 py-4 text-[#111] transition-all duration-200 active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:gap-[18px] md:rounded-[18px] md:px-7 md:py-6 md:duration-300 md:hover:-translate-y-1 md:hover:border-transparent md:hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] to-[#1e293b] opacity-0 transition-all duration-300 md:group-hover:opacity-100" />
-      <div className="relative flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-[14px] border-2 border-[#ebebeb] bg-white text-[18px] font-extrabold text-[#111] transition-all duration-300 group-active:border-white/20 group-active:bg-white/10 group-active:text-white md:group-hover:border-[#111] md:group-hover:bg-[#111] md:group-hover:text-white">
+    <div className="group relative flex items-start gap-[18px] overflow-hidden rounded-[18px] border border-[#eee] bg-[#f8fafc] px-7 py-6 transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]">
+      <div className="absolute inset-0 bg-[#f0fdf4] opacity-0 transition-all duration-300 group-active:opacity-100 md:group-hover:opacity-100" />
+      <div className="relative flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-[14px] border-2 border-[#ebebeb] bg-white text-[18px] font-extrabold text-[#111] transition-all duration-300 group-active:border-[#111] group-active:bg-[#111] group-active:text-white md:group-hover:border-[#111] md:group-hover:bg-[#111] md:group-hover:text-white">
         {item.title.charAt(0)}
       </div>
       <div className="relative">
-        <div className="mb-1.5 text-lg font-extrabold leading-relaxed text-[#111] transition-colors duration-300 group-active:text-white md:text-base md:group-hover:text-white">
+        <div className="mb-1.5 text-base font-extrabold text-[#111]">
           {item.title}
         </div>
-        <div className="text-sm leading-relaxed text-[#777] transition-colors duration-300 group-active:text-white/85 md:text-[13px] md:leading-[1.7] md:group-hover:text-white/80">
+        <div className="text-[13px] leading-[1.7] text-[#777]">
           {item.text}
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -104,23 +101,20 @@ function RelatedServiceCard({ related }) {
 
 function ProcessCard({ num, title, text }) {
   return (
-    <Link
-      href="/contact-us"
-      className="group relative mx-auto block w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#eee] bg-white px-4 py-4 text-[#111] transition-all duration-200 ease-out active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:rounded-2xl md:px-6 md:py-7 md:duration-300 md:hover:-translate-y-2 md:hover:border-[#22c55e]/40 md:hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
-    >
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0f172a] to-[#1e293b] opacity-0 transition-all duration-300 md:rounded-2xl md:group-hover:opacity-100" />
+    <div className="group relative overflow-hidden rounded-2xl border border-[#eee] bg-white px-6 py-7 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#22c55e]/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+      <div className="absolute inset-0 rounded-2xl bg-[#f0fdf4] opacity-0 transition-all duration-300 group-active:opacity-30 md:group-hover:opacity-30" />
       <div className="relative z-10 mb-3 flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f1f5f9] text-[14px] font-semibold text-[#111] transition-all duration-300 group-active:bg-white/10 group-active:text-white md:group-hover:bg-[#22c55e] md:group-hover:text-white">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f1f5f9] text-[14px] font-semibold text-[#111] transition-all duration-300 group-active:bg-[#22c55e] group-active:text-white md:group-hover:bg-[#22c55e] md:group-hover:text-white">
           {num}
         </div>
-        <div className="text-lg font-extrabold leading-relaxed text-[#111] transition-colors duration-300 group-active:text-white md:text-base md:group-hover:text-white">
+        <div className="text-base font-extrabold text-[#111]">
           {title}
         </div>
       </div>
-      <div className="relative z-10 text-sm leading-relaxed text-[#888] transition-colors duration-300 group-active:text-white/85 md:text-[13px] md:leading-[1.7] md:group-hover:text-white/80">
+      <div className="relative z-10 text-[13px] leading-[1.7] text-[#888]">
         {text}
       </div>
-    </Link>
+    </div>
   );
 }
 
