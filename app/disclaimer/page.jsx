@@ -2,7 +2,7 @@ import { LegalPage } from "../../components/LegalPage";
 import { business } from "../../data/site-data";
 
 const lines = [
-  "Disclaimer – Urban AC (UAC)",
+  
   "Effective Date: 03-05-2026",
   "The information provided on this website is for general informational purposes only. By using our website or services, you agree to the terms outlined in this Disclaimer.",
   "1. General Information",
@@ -47,8 +47,8 @@ const lines = [
   "11. Changes to Disclaimer",
   "Urban AC reserves the right to update or modify this Disclaimer at any time. Any changes will be posted on this page with an updated effective date.",
   "12. Contact Information",
-  "If you have any questions regarding this Disclaimer, please contact:",
-  "<!-- DISCLAIMER CONTENT END -->"
+  "If you have any questions regarding this Disclaimer, please contact:"
+  
 ];
 
 export const metadata = {

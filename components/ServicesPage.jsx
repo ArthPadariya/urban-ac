@@ -3,7 +3,7 @@ import { getMainServiceHref } from "../data/site-data";
 import { LocationsMotionStyles } from "./LocationsMotionStyles";
 
 const serviceCardClass =
-  "service-hover-card group relative rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] ease-out hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent active:scale-[0.98]";
+  "service-hover-card group relative mx-auto block h-full w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#e5e7eb] bg-white px-4 py-4 text-[#111] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-200 ease-out active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:rounded-2xl md:px-6 md:py-6 md:duration-300 md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:border-transparent";
 
 const servicesPageData = [
   {
@@ -82,35 +82,38 @@ export function ServicesPage() {
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
             {servicesPageData.map((service, index) => (
-              <article
+              <Link
                 key={service.slug}
+                href={getMainServiceHref(service.slug)}
                 className={`${serviceCardClass} motion-safe:animate-[locationsFadeUp_0.74s_ease-out_both]`}
                 style={{ animationDelay: `${index * 75}ms` }}
               >
-                <div className="service-hover-card-overlay absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="relative flex h-full flex-col gap-4">
+                <div className="service-hover-card-overlay absolute inset-0 rounded-xl bg-gradient-to-br from-blue-50 via-transparent to-transparent opacity-0 transition-opacity duration-300 md:rounded-2xl md:group-hover:opacity-100" />
+                <div className="relative flex h-full flex-col gap-3 md:gap-4">
                   <span className="service-hover-badge inline-flex w-fit rounded-full border border-[#dfe7f5] bg-[#F4F8FF] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#555]">
                     URBAN AC SERVICE
                   </span>
-                  <h2 className="text-2xl font-bold tracking-tight text-[#111] transition-colors duration-300">
+                  <h2 className="text-lg font-bold tracking-tight text-[#111] transition-colors duration-300 group-active:text-white md:text-2xl md:group-hover:text-white">
                     {service.title}
                   </h2>
-                  <p className="text-sm leading-7 text-[#555]">{service.description}</p>
+                  <p className="text-sm leading-relaxed text-[#555] transition-colors duration-300 group-active:text-white/90 md:text-base md:leading-7 md:group-hover:text-white/85">
+                    {service.description}
+                  </p>
                   <ul className="space-y-2">
                     {service.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2 text-sm leading-relaxed text-[#666] transition-colors duration-300">
+                      <li
+                        key={bullet}
+                        className="flex items-start gap-2 text-sm leading-relaxed text-[#666] transition-colors duration-300 group-active:text-white/85 md:group-hover:text-white/80"
+                      >
                         <span className="service-hover-dot mt-2 h-1.5 w-1.5 rounded-full bg-[#0B0B0B]" />
                         <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href={getMainServiceHref(service.slug)}
-                    className="mt-auto inline-flex items-center gap-1 text-sm font-bold text-[#0B0B0B] transition-all duration-300 group-hover:gap-2"
-                  >
+                  <span className="mt-auto inline-flex items-center gap-1 text-sm font-bold text-[#0B0B0B] transition-all duration-300 group-active:text-white md:group-hover:gap-2 md:group-hover:text-white">
                     <span>Explore</span>
                     <svg
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+                      className="transition-transform duration-300 md:group-hover:translate-x-1"
                       width="14"
                       height="14"
                       viewBox="0 0 24 24"
@@ -121,9 +124,9 @@ export function ServicesPage() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

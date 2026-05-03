@@ -2,8 +2,7 @@ import { LegalPage } from "../../components/LegalPage";
 import { business } from "../../data/site-data";
 
 const lines = [
-  "<!-- PRIVACY POLICY CONTENT START -->",
-  "Terms & Conditions – Urban AC (UAC)",
+  "Terms & Conditions ",
   "Effective Date: 03-05-2026",
   "Welcome to Urban AC (UAC). By accessing our website or booking our services, you agree to comply with and be bound by the following Terms & Conditions. Please read them carefully before using our services.",
   "1. About Our Services",
@@ -68,8 +67,8 @@ const lines = [
   "Urban AC (UAC)",
   "📞 Phone: +91 6354658540",
   "📍 Address: Waghodia Road, Vadodara, Gujarat – 390025",
-  "🕒 Working Hours: 7:00 AM to 10:00 PM",
-  "<!-- PRIVACY POLICY CONTENT END -->"
+  "🕒 Working Hours: 7:00 AM to 10:00 PM"
+  
 ];
 
 export const metadata = {

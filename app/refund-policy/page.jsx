@@ -31,8 +31,8 @@ const lines = [
   "Urban AC (UAC)",
   "📞 Phone: +91 6354658540",
   "📍 Address: Waghodia Road, Vadodara, Gujarat – 390025",
-  "🕒 Working Hours: 7:00 AM to 10:00 PM",
-  "<!-- REFUND POLICY CONTENT END -->"
+  "🕒 Working Hours: 7:00 AM to 10:00 PM"
+  
 ];
 
 export const metadata = {

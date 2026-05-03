@@ -37,16 +37,36 @@ const contactCards = [
 
 const miniFaqs = [
   {
-    question: "Response time?",
-    answer: "Most local booking requests are routed quickly, and same-day support is available when slots are open."
+    question: "How fast can you reach my location?",
+    answer: "Usually within 30–60 minutes depending on area."
   },
   {
-    question: "Service areas?",
-    answer: "We serve multiple areas across Vadodara, including Sama, Gotri, Vasna, Alkapuri, Karelibaug, and more."
+    question: "Do you provide same-day AC service?",
+    answer: "Yes, same-day service is available."
   },
   {
-    question: "Pricing?",
-    answer: "Pricing depends on the service type and AC condition, and our team explains the scope clearly before work begins."
+    question: "What types of AC do you service?",
+    answer: "Split, Window, Inverter AC."
+  },
+  {
+    question: "Do you bring spare parts?",
+    answer: "Yes, common parts included."
+  },
+  {
+    question: "What are your service charges?",
+    answer: "Depends on service type."
+  },
+  {
+    question: "Do you offer AMC plans?",
+    answer: "Yes, AMC available."
+  },
+  {
+    question: "Is gas filling included?",
+    answer: "No, separate service."
+  },
+  {
+    question: "Which areas do you cover?",
+    answer: "All major areas in Vadodara."
   }
 ];
 
@@ -169,7 +189,7 @@ export function ContactPage() {
                 width={832}
                 height={1280}
                 priority
-                className="relative mx-auto h-auto max-h-[620px] w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="relative mx-auto h-auto max-h-[620px] w-full object-contain transition-transform duration-700 ease-out md:group-hover:scale-[1.02]"
               />
             </div>
           </div>
@@ -188,15 +208,23 @@ export function ContactPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {contactCards.map((card, index) => {
               const content = (
-                <div className="group relative h-full rounded-2xl border border-[#eee] bg-white p-7 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:border-transparent hover:shadow-[0_26px_55px_rgba(15,23,42,0.12)] active:scale-[0.97]">
-                  <div className="absolute inset-0 rounded-2xl bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(34,197,94,0.04))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="group relative mx-auto h-full w-full max-w-[90%] rounded-xl border border-[#eee] bg-white px-4 py-4 text-[#111] shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 ease-out active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:rounded-2xl md:px-6 md:py-6 md:duration-300 md:hover:-translate-y-2 md:hover:scale-[1.03] md:hover:border-transparent md:hover:shadow-[0_26px_55px_rgba(15,23,42,0.12)]">
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0f172a] to-[#1e293b] opacity-0 transition-opacity duration-300 md:rounded-2xl md:group-hover:opacity-100" />
                   <div className="relative flex h-full flex-col">
-                    <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#ececec] bg-[#f8fafc]">
-                      <card.Icon className={card.iconClassName} size={22} aria-hidden="true" />
+                    <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#ececec] bg-[#f8fafc] transition-all duration-300 group-active:border-white/20 group-active:bg-white/10 md:group-hover:border-white/20 md:group-hover:bg-white/10">
+                      <card.Icon
+                        className={`${card.iconClassName} transition-colors duration-300 group-active:text-white md:group-hover:text-white`}
+                        size={22}
+                        aria-hidden="true"
+                      />
                     </span>
-                    <h3 className="mb-3 text-2xl font-bold tracking-tight text-[#111]">{card.title}</h3>
-                    <p className="mb-6 text-sm leading-7 text-[#666]">{card.text}</p>
-                    <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#111] transition-all duration-300 group-hover:gap-3">
+                    <h3 className="mb-3 text-lg font-bold leading-relaxed tracking-tight text-[#111] transition-colors duration-300 group-active:text-white md:text-2xl md:group-hover:text-white">
+                      {card.title}
+                    </h3>
+                    <p className="mb-6 text-sm leading-relaxed text-[#666] transition-colors duration-300 group-active:text-white/80 md:leading-7 md:group-hover:text-white/75">
+                      {card.text}
+                    </p>
+                    <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#111] transition-all duration-300 group-active:text-white md:group-hover:gap-3 md:group-hover:text-white">
                       {card.cta}
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -308,7 +336,7 @@ export function ContactPage() {
                 alt="Technician illustration for AC service booking form"
                 width={832}
                 height={1280}
-                className="relative mx-auto h-auto max-h-[620px] w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="relative mx-auto h-auto max-h-[620px] w-full object-contain transition-transform duration-700 ease-out md:group-hover:scale-[1.02]"
               />
               <div className="relative mt-4 rounded-2xl border border-[#eef2f7] bg-[#f8fbff] p-5">
                 <div className="text-sm font-bold text-[#111]">Urban AC - Vadodara</div>
@@ -322,9 +350,7 @@ export function ContactPage() {
 
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="group relative overflow-hidden rounded-[30px] bg-[linear-gradient(135deg,#0a0a0a_0%,#111827_60%,#0f1a12_100%)] px-8 py-10 shadow-[0_28px_80px_rgba(0,0,0,0.24)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_34px_90px_rgba(0,0,0,0.28)] md:px-10 lg:px-12">
-            <div className="pointer-events-none absolute -left-10 top-0 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.18),transparent_70%)]" />
-            <div className="pointer-events-none absolute right-20 top-10 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(34,197,94,0.18),transparent_72%)]" />
+          <div className="group relative overflow-hidden rounded-2xl bg-[#0f172a] px-6 py-6 shadow-[0_28px_80px_rgba(0,0,0,0.24)] transition-all duration-300 md:rounded-[30px] md:bg-[linear-gradient(135deg,#0a0a0a_0%,#111827_60%,#0f1a12_100%)] md:px-10 md:py-10 md:hover:-translate-y-1 md:hover:shadow-[0_34px_90px_rgba(0,0,0,0.28)] lg:px-12">
             <div className="relative grid items-center gap-8 md:grid-cols-[1fr_250px] lg:grid-cols-[1fr_320px]">
               <div className="max-w-2xl">
                 <span className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
@@ -333,7 +359,7 @@ export function ContactPage() {
                 <h2 className="mb-4 text-[clamp(2rem,4vw,3rem)] font-black leading-[1.08] tracking-[-0.03em] text-white">
                   Need Urgent AC Service?
                 </h2>
-                <p className="max-w-xl text-[15px] leading-7 text-white/72 md:text-base">
+                <p className="max-w-xl text-sm leading-relaxed text-white/80 md:text-base md:leading-7">
                   Call or WhatsApp now and get connected to quick local booking support in Vadodara.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -358,7 +384,7 @@ export function ContactPage() {
                   alt="Technician illustration for urgent AC support"
                   width={509}
                   height={556}
-                  className="h-auto w-[220px] object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)] motion-safe:animate-[locationsFloat_3.2s_ease-in-out_infinite] md:-mb-8 md:-mr-4 lg:w-[260px]"
+                  className="h-auto w-full max-w-[220px] object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)] motion-safe:animate-[locationsFloat_3.2s_ease-in-out_infinite] md:-mb-6 md:-mr-4 md:w-[220px] lg:w-[260px]"
                 />
               </div>
             </div>
@@ -379,7 +405,7 @@ export function ContactPage() {
             {miniFaqs.map((item, index) => (
               <details
                 key={item.question}
-                className="group rounded-2xl border border-[#eee] bg-white p-5 shadow-[0_10px_24px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(15,23,42,0.08)]"
+                className="group mx-auto w-full max-w-[90%] rounded-xl border border-[#eee] bg-white px-4 py-4 shadow-[0_10px_24px_rgba(15,23,42,0.05)] transition-all duration-200 active:scale-[0.98] md:max-w-none md:rounded-2xl md:p-5 md:duration-300 md:hover:-translate-y-1 md:hover:shadow-[0_18px_38px_rgba(15,23,42,0.08)]"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-bold text-[#111]">

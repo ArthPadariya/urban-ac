@@ -46,7 +46,7 @@ function CountUpValue({ end, suffix = "", duration = 2000 }) {
 
 function StatCard({ end, suffix, label, sub }) {
   return (
-    <div className="flex flex-col items-center rounded-[20px] border border-white/10 bg-white/6 px-5 py-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_18px_32px_rgba(0,0,0,0.18)] active:scale-[0.98] active:bg-white/12">
+    <div className="mx-auto flex max-w-[90%] flex-col items-center rounded-xl border border-white/10 bg-white/6 px-4 py-4 text-center backdrop-blur-sm transition-all duration-200 active:scale-[0.97] active:bg-white/12 md:max-w-none md:rounded-[20px] md:px-5 md:py-6 md:duration-300 md:hover:-translate-y-1 md:hover:bg-white/10 md:hover:shadow-[0_18px_32px_rgba(0,0,0,0.18)]">
       <div className="text-[clamp(2.2rem,4vw,3rem)] font-extrabold leading-none tracking-[-0.04em] text-white">
         <CountUpValue end={end} suffix={suffix} />
       </div>
@@ -60,21 +60,21 @@ function ServiceTypeCard({ title, desc, icon }) {
   return (
     <Link
       href="/contact-us"
-      className="service-hover-card group relative cursor-pointer overflow-hidden rounded-[20px] border border-[#ebebeb] bg-white px-7 py-8 ease-out active:scale-[0.98] active:bg-[#f3f4f6]"
+      className="service-hover-card group relative mx-auto block w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#ebebeb] bg-white px-4 py-4 text-[#111] transition-all duration-200 ease-out active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:rounded-[20px] md:px-6 md:py-6 md:duration-300 md:hover:-translate-y-1 md:hover:border-transparent md:hover:shadow-[0_18px_36px_rgba(0,0,0,0.08)]"
+      style={{ "--service-card-hover-bg": "linear-gradient(135deg,#0f172a,#1e293b)" }}
     >
-      <div className="service-hover-card-overlay absolute inset-0 rounded-[20px] bg-[#ffffff] opacity-100 transition-opacity duration-300 group-hover:opacity-[0.08]" />
-      <div className="service-hover-card-overlay absolute inset-[1px] rounded-[19px] bg-[#f8fafc] opacity-60 transition-opacity duration-300 group-hover:opacity-0" />
-      <div className="relative">
-        <div className="mb-3 flex items-center gap-2">
-          <span className="text-[20px] transition-all duration-300 group-hover:text-white">{icon}</span>
-          <span className="text-[17px] font-extrabold text-[#111] transition-colors duration-300 group-hover:text-white">
+      <div className="service-hover-card-overlay absolute inset-0 rounded-xl bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] opacity-0 transition-opacity duration-300 md:rounded-[20px] md:group-hover:opacity-100" />
+      <div className="relative space-y-3">
+        <div className="flex items-center gap-2">
+          <span className="text-[20px] transition-all duration-300 group-active:text-white md:group-hover:text-white">{icon}</span>
+          <span className="text-lg font-extrabold leading-relaxed text-[#111] transition-colors duration-300 group-active:text-white md:text-[17px] md:group-hover:text-white">
             {title}
           </span>
         </div>
-        <div className="text-[13px] leading-[1.65] text-[#888] transition-colors duration-300 group-hover:text-white/85">
+        <div className="text-sm leading-relaxed text-[#888] transition-colors duration-300 group-active:text-white/85 md:text-[13px] md:leading-[1.65] md:group-hover:text-white/85">
           {desc}
         </div>
-        <div className="mt-5 flex items-center gap-1 text-xs font-bold text-[#111] transition-all duration-300 group-hover:gap-1.5 group-hover:text-white">
+        <div className="flex items-center gap-1 text-xs font-bold text-[#111] transition-all duration-300 group-active:text-white md:mt-5 md:group-hover:gap-1.5 md:group-hover:text-white">
           <span>Contact Us</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
             <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -87,37 +87,51 @@ function ServiceTypeCard({ title, desc, icon }) {
 
 function FeatureCard({ icon, title, desc }) {
   return (
-    <div className="group relative flex cursor-pointer items-start gap-[18px] overflow-hidden rounded-[18px] border border-[#eee] bg-[#f8fafc] px-7 py-6 transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] active:scale-[0.98]">
-      <div className="absolute inset-0 bg-[#f0fdf4] opacity-0 transition-all duration-300 group-hover:opacity-100" />
-      <div className="relative flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-[14px] border-2 border-[#ebebeb] bg-white text-[22px] transition-all duration-300 group-hover:border-[#111] group-hover:bg-[#111] group-hover:text-white">
+    <Link
+      href="/contact-us"
+      className="group relative mx-auto flex w-full max-w-[90%] cursor-pointer items-start gap-4 overflow-hidden rounded-xl border border-[#eee] bg-[#f8fafc] px-4 py-4 text-[#111] transition-all duration-200 active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:gap-[18px] md:rounded-[18px] md:px-6 md:py-6 md:duration-300 md:hover:-translate-y-1 md:hover:border-transparent md:hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] to-[#1e293b] opacity-0 transition-all duration-300 md:group-hover:opacity-100" />
+      <div className="relative flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-[14px] border-2 border-[#ebebeb] bg-white text-[22px] transition-all duration-300 group-active:border-white/20 group-active:bg-white/10 group-active:text-white md:group-hover:border-[#111] md:group-hover:bg-[#111] md:group-hover:text-white">
         {icon}
       </div>
       <div className="relative">
-        <div className="mb-1.5 text-base font-extrabold text-[#111]">{title}</div>
-        <div className="text-[13px] leading-[1.7] text-[#777]">{desc}</div>
+        <div className="mb-1.5 text-lg font-extrabold leading-relaxed text-[#111] transition-colors duration-300 group-active:text-white md:text-base md:group-hover:text-white">
+          {title}
+        </div>
+        <div className="text-sm leading-relaxed text-[#777] transition-colors duration-300 group-active:text-white/85 md:text-[13px] md:leading-[1.7] md:group-hover:text-white/80">
+          {desc}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
 function ProcessCard({ num, title, desc }) {
   return (
-    <div className="group relative cursor-pointer overflow-hidden rounded-2xl border border-[#eee] bg-white px-6 py-7 transition-all duration-300 ease-out hover:-translate-y-2 hover:border-[#22c55e]/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] active:scale-[0.97]">
-      <div className="absolute inset-0 rounded-2xl bg-[#f0fdf4] opacity-0 transition-all duration-300 group-hover:opacity-30" />
+    <Link
+      href="/contact-us"
+      className="group relative mx-auto block w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#eee] bg-white px-4 py-4 text-[#111] transition-all duration-200 ease-out active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:rounded-2xl md:px-6 md:py-6 md:duration-300 md:hover:-translate-y-2 md:hover:border-[#22c55e]/40 md:hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
+    >
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0f172a] to-[#1e293b] opacity-0 transition-all duration-300 md:rounded-2xl md:group-hover:opacity-100" />
       <div className="relative z-10 mb-3 flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f1f5f9] text-[14px] font-semibold text-[#111] transition-all duration-300 group-hover:bg-[#22c55e] group-hover:text-white">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f1f5f9] text-[14px] font-semibold text-[#111] transition-all duration-300 group-active:bg-white/10 group-active:text-white md:group-hover:bg-[#22c55e] md:group-hover:text-white">
           {num}
         </div>
-        <div className="text-base font-extrabold text-[#111]">{title}</div>
+        <div className="text-lg font-extrabold leading-relaxed text-[#111] transition-colors duration-300 group-active:text-white md:text-base md:group-hover:text-white">
+          {title}
+        </div>
       </div>
-      <div className="relative z-10 text-[13px] leading-[1.7] text-[#888]">{desc}</div>
-    </div>
+      <div className="relative z-10 text-sm leading-relaxed text-[#888] transition-colors duration-300 group-active:text-white/85 md:text-[13px] md:leading-[1.7] md:group-hover:text-white/80">
+        {desc}
+      </div>
+    </Link>
   );
 }
 
 function ReviewCard({ name, loc, text, tag }) {
   return (
-    <div className="group relative cursor-pointer rounded-2xl border border-[#eee] bg-white p-7 shadow-[0_8px_25px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-2 hover:border-transparent hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] active:scale-[0.97]">
+    <div className="group relative cursor-pointer rounded-2xl border border-[#eee] bg-white p-7 shadow-[0_8px_25px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out md:hover:-translate-y-2 md:hover:border-transparent md:hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)] active:scale-[0.97]">
       <div className="mb-5 flex items-start justify-between gap-4">
         <div className="flex gap-1 text-[#3b82f6]">
           {Array.from({ length: 5 }).map((_, index) => (
@@ -147,7 +161,7 @@ function ReviewCard({ name, loc, text, tag }) {
 function FaqItem({ q, a, open, onToggle }) {
   return (
     <div
-      className={`group cursor-pointer overflow-hidden rounded-2xl border border-[#e5e5e5] transition-all duration-300 hover:-translate-y-1 hover:border-[#22c55e] hover:bg-[#f0fdf4] hover:shadow-sm active:scale-[0.98] ${
+      className={`group cursor-pointer overflow-hidden rounded-2xl border border-[#e5e5e5] transition-all duration-300 md:hover:-translate-y-1 md:hover:border-[#22c55e] md:hover:bg-[#f0fdf4] md:hover:shadow-sm active:scale-[0.98] ${
         open
           ? "border-[#bbf7d0] bg-[#ecfdf5] shadow-[0_12px_24px_rgba(17,17,17,0.06)]"
           : "bg-white"
@@ -337,9 +351,9 @@ export function ServiceAreaPage({ service, area }) {
                 <img
                   src="/tech11.jpeg"
                   alt="AC technician installing air conditioner"
-                  className="h-[clamp(340px,50vw,560px)] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="h-auto w-full object-contain transition-transform duration-700 ease-out md:h-[clamp(340px,50vw,560px)] md:object-cover md:group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#22c55e]/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#22c55e]/25 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
               </div>
             </div>
           </div>
@@ -374,7 +388,7 @@ export function ServiceAreaPage({ service, area }) {
                 <img
                   src="/tech10.jpeg"
                   alt="Urban AC technician at work"
-                  className="h-[400px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="h-auto w-full object-contain transition-transform duration-700 ease-out md:h-[400px] md:object-cover md:group-hover:scale-105"
                 />
               </div>
               <div className="absolute -right-4 -top-4 -z-10 h-[120px] w-[120px] rounded-full bg-[#f5f5f5] opacity-80" />
@@ -480,9 +494,9 @@ export function ServiceAreaPage({ service, area }) {
               <img
                 src="/tech12.jpeg"
                 alt="Professional AC installation quality"
-                className="h-[500px] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="h-auto w-full object-contain transition-transform duration-700 ease-out md:h-[500px] md:object-cover md:group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#22c55e]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#22c55e]/20 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
             </div>
 
             <div className="order-1 lg:order-2">
@@ -494,25 +508,28 @@ export function ServiceAreaPage({ service, area }) {
               <p className="mb-8 text-[15px] leading-[1.8] text-[#666]">{content.quality.description}</p>
               <div className="flex flex-col gap-4">
                 {content.checklist.map((item) => (
-                  <div
+                  <Link
                     key={item.text}
-                    className={`group relative cursor-default overflow-hidden rounded-xl border border-[#eee] bg-[#f8fafc] px-5 py-4 transition-all duration-300 hover:translate-x-1 hover:shadow-[0_14px_28px_rgba(17,17,17,0.06)] active:scale-[0.985] active:bg-[#f3f4f6] ${
-                      isInstallationChecklist ? "checklist-card" : "hover:bg-white"
+                    href="/contact-us"
+                    className={`group relative mx-auto block w-full max-w-[90%] cursor-pointer overflow-hidden rounded-xl border border-[#eee] bg-[#f8fafc] px-4 py-4 text-[#111] transition-all duration-200 active:scale-[0.97] active:bg-[#0f172a] md:max-w-none md:px-5 md:py-4 md:duration-300 md:hover:translate-x-1 md:hover:shadow-[0_14px_28px_rgba(17,17,17,0.06)] ${
+                      isInstallationChecklist ? "checklist-card" : "md:hover:bg-white"
                     }`}
                   >
                     {isInstallationChecklist ? null : (
                       <>
-                        <span className={`absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${item.tintClass}`} />
+                        <span className={`absolute inset-0 opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 ${item.tintClass}`} />
                         <span className={`absolute left-0 top-0 h-full w-[4px] ${item.barClass}`} />
                       </>
                     )}
-                    <span className="relative pr-12 text-sm font-semibold text-[#111]">{item.text}</span>
-                    <span className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1.5 opacity-50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100">
+                    <span className="relative pr-12 text-sm font-semibold leading-relaxed text-[#111] transition-colors duration-300 group-active:text-white md:group-hover:text-white">
+                      {item.text}
+                    </span>
+                    <span className="absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-1.5 opacity-50 transition-all duration-300 group-active:opacity-100 md:group-hover:translate-x-0.5 md:group-hover:opacity-100">
                       <span className={`h-1.5 w-1.5 rounded-full ${item.dotClass}`} />
                       <span className={`h-2 w-2 rounded-full ${item.dotClass}`} />
                       <span className={`h-1.5 w-1.5 rounded-full ${item.dotClass}`} />
                     </span>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
