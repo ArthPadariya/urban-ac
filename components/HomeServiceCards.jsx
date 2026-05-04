@@ -84,7 +84,7 @@ export function HomeServiceCards({ services }) {
             key={service.slug}
             href={href}
             onClick={(event) => handleCardClick(event, service.slug, href)}
-            className={`service-hover-card group relative cursor-pointer select-none rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-in-out will-change-transform hover:-translate-y-2 hover:scale-[1.01] hover:border-transparent active:scale-[0.97] motion-safe:animate-[locationsFadeUp_0.74s_ease-out_both] ${
+            className={`service-hover-card group relative cursor-pointer select-none rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-all duration-300 ease-in-out will-change-transform md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:border-transparent active:scale-[0.97] motion-safe:animate-[locationsFadeUp_0.74s_ease-out_both] ${
               isActive ? "service-card-active" : ""
             }`}
             style={{
@@ -95,14 +95,14 @@ export function HomeServiceCards({ services }) {
             }}
           >
             <div
-              className={`service-hover-card-overlay absolute inset-0 rounded-2xl ${variant.overlay} opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 ${
+              className={`service-hover-card-overlay pointer-events-none absolute inset-0 rounded-2xl ${variant.overlay} opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 ${
                 isActive ? "opacity-0" : ""
               }`}
             />
 
             <div className="relative flex h-full flex-col gap-4">
               <span
-                className={`service-hover-badge inline-flex w-fit rounded-full border border-[#dfe7f5] bg-[#F4F8FF] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#555] transition-colors duration-300 group-hover:text-white group-active:text-white ${
+                className={`service-hover-badge inline-flex w-fit rounded-full border border-[#dfe7f5] bg-[#F4F8FF] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#555] transition-colors duration-300 md:group-hover:text-white ${
                   isActive ? "border-white/25 bg-white/10 text-white" : ""
                 }`}
               >
@@ -110,7 +110,7 @@ export function HomeServiceCards({ services }) {
               </span>
 
               <h3
-                className={`text-2xl font-bold tracking-tight text-[#111] transition-colors duration-300 group-hover:text-white group-active:text-white ${
+                className={`text-2xl font-bold tracking-tight text-[#111] transition-colors duration-300 md:group-hover:text-white ${
                   isActive ? "text-white" : ""
                 }`}
               >
@@ -118,7 +118,7 @@ export function HomeServiceCards({ services }) {
               </h3>
 
               <p
-                className={`text-sm leading-7 text-[#555] transition-colors duration-300 group-hover:text-white group-active:text-white ${
+                className={`text-sm leading-7 text-[#555] transition-colors duration-300 md:group-hover:text-white ${
                   isActive ? "text-white" : ""
                 }`}
               >
@@ -129,7 +129,7 @@ export function HomeServiceCards({ services }) {
                 {service.types.slice(0, 3).map((type) => (
                   <li
                     key={type}
-                    className={`flex items-start gap-2 text-sm leading-relaxed text-[#666] transition-colors duration-300 group-hover:text-white group-active:text-white ${
+                    className={`flex items-start gap-2 text-sm leading-relaxed text-[#666] transition-colors duration-300 md:group-hover:text-white ${
                       isActive ? "text-white" : ""
                     }`}
                   >
@@ -144,14 +144,14 @@ export function HomeServiceCards({ services }) {
               </ul>
 
               <div
-                className={`mt-auto flex items-center gap-1 text-sm font-bold text-[#0B0B0B] transition-all duration-300 group-hover:gap-2 group-hover:text-white group-active:gap-2 group-active:text-white ${
+                className={`mt-auto flex items-center gap-1 text-sm font-bold text-[#0B0B0B] transition-all duration-300 md:group-hover:gap-2 md:group-hover:text-white ${
                   isActive ? "gap-2 text-white" : ""
                 }`}
               >
                 <span>Explore {service.name}</span>
 
                 <svg
-                  className={`transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-1 ${
+                  className={`transition-transform duration-300 md:group-hover:translate-x-1 ${
                     isActive ? "translate-x-1" : ""
                   }`}
                   width="14"
