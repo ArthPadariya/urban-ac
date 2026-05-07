@@ -211,7 +211,8 @@ export function AreaPageTemplate({ service, location }) {
             </div>
             <img
               src="/home-cta-1.png"
-              alt="Urban AC technician"
+              alt={`Urban AC technician ready for ${service.name} in ${location.name}, ${business.city}`}
+              loading="lazy"
               className="w-[180px] max-h-[220px] object-contain md:w-[220px]"
             />
           </div>

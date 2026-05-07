@@ -362,7 +362,8 @@ export function HomePage() {
               </div>
               <img
                 src="/home-cta-1.png"
-                alt="AC technician"
+                alt={`Urban AC technician helping with AC service in ${business.city}`}
+                loading="lazy"
                 className="w-[180px] max-h-[220px] object-contain md:w-[220px]"
               />
             </div>

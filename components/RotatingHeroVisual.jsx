@@ -48,7 +48,7 @@ export function RotatingHeroVisual() {
         >
           <Image
             src={slide.src}
-            alt={slide.title}
+            alt={`${slide.title} by Urban AC in Vadodara`}
             width={832}
             height={1280}
             priority

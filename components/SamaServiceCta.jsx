@@ -89,6 +89,7 @@ export function SamaServiceCta({
                 <img
                   src={imageSrc}
                   alt={imageAlt}
+                  loading="lazy"
                   className="w-[180px] max-h-[220px] object-contain bg-transparent md:w-[220px]"
                 />
               </div>

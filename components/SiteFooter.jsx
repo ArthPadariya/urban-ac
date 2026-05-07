@@ -105,9 +105,11 @@ export function SiteFooter() {
                 <Link
                   key={service.slug}
                   href={getMainServiceHref(service.slug)}
+                  title={`${service.name} in ${business.city}`}
                   className={footerLinkClass}
                 >
-                  {service.name}
+                  <span>{service.name}</span>
+                  <span className="sr-only"> in {business.city}</span>
                 </Link>
               ))}
             </div>
@@ -120,9 +122,11 @@ export function SiteFooter() {
                 <Link
                   key={slug}
                   href={`/ac-service-${slug}`}
+                  title={`AC Service in ${locationMap[slug].name}`}
                   className={footerLinkClass}
                 >
-                  {locationMap[slug].name}
+                  <span>{locationMap[slug].name}</span>
+                  <span className="sr-only"> AC Service in {business.city}</span>
                 </Link>
               ))}
               <Link

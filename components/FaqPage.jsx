@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import { business } from "../data/site-data";
 import { LocationsMotionStyles } from "./LocationsMotionStyles";
 
-const faqCategories = [
+export const faqCategories = [
   {
     id: "general",
     label: "General",

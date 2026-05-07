@@ -1,5 +1,7 @@
 import { LegalPage } from "../../components/LegalPage";
+import { SeoJsonLd } from "../../components/SeoJsonLd";
 import { business } from "../../data/site-data";
+import { buildBreadcrumbSchema, buildWebPageSchema, createStaticPageMetadata } from "../../lib/seo";
 
 const lines = [
   
@@ -72,11 +74,30 @@ const lines = [
   
 ];
 
-export const metadata = {
-  title: `Terms & Conditions | ${business.name}`,
-  description: `Read the terms and conditions for ${business.name}.`
-};
+const title = `Terms and Conditions | ${business.name}`;
+const description = `Read the terms and conditions for ${business.name} AC services and website usage.`;
+
+export const metadata = createStaticPageMetadata({
+  title,
+  description,
+  path: "/terms-and-conditions",
+  keywords: [`${business.name} terms and conditions`, `${business.name} service terms`]
+});
 
 export default function Page() {
-  return <LegalPage eyebrow="Legal" title="Terms & Conditions" subtitle="The terms that govern use of our website and services." lines={lines} />;
+  return (
+    <>
+      <SeoJsonLd
+        id="terms-seo"
+        data={[
+          buildWebPageSchema({ title, description, path: "/terms-and-conditions" }),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Terms and Conditions", path: "/terms-and-conditions" }
+          ])
+        ]}
+      />
+      <LegalPage eyebrow="Legal" title="Terms & Conditions" subtitle="The terms that govern use of our website and services." lines={lines} />
+    </>
+  );
 }

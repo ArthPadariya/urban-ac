@@ -1,5 +1,7 @@
 import { LegalPage } from "../../components/LegalPage";
+import { SeoJsonLd } from "../../components/SeoJsonLd";
 import { business } from "../../data/site-data";
+import { buildBreadcrumbSchema, buildWebPageSchema, createStaticPageMetadata } from "../../lib/seo";
 
 const lines = [
   
@@ -51,11 +53,30 @@ const lines = [
   
 ];
 
-export const metadata = {
-  title: `Disclaimer | ${business.name}`,
-  description: `Read the disclaimer for ${business.name}.`
-};
+const title = `Disclaimer | ${business.name}`;
+const description = `Read the website and service disclaimer for ${business.name} in ${business.city}.`;
+
+export const metadata = createStaticPageMetadata({
+  title,
+  description,
+  path: "/disclaimer",
+  keywords: [`${business.name} disclaimer`, `${business.name} legal information`]
+});
 
 export default function Page() {
-  return <LegalPage eyebrow="Legal" title="Disclaimer" subtitle="Important information about using our website and services." lines={lines} />;
+  return (
+    <>
+      <SeoJsonLd
+        id="disclaimer-seo"
+        data={[
+          buildWebPageSchema({ title, description, path: "/disclaimer" }),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Disclaimer", path: "/disclaimer" }
+          ])
+        ]}
+      />
+      <LegalPage eyebrow="Legal" title="Disclaimer" subtitle="Important information about using our website and services." lines={lines} />
+    </>
+  );
 }

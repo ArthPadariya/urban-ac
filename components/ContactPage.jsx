@@ -35,7 +35,7 @@ const contactCards = [
   }
 ];
 
-const miniFaqs = [
+export const miniFaqs = [
   {
     question: "How fast can you reach my location?",
     answer: "Usually within 30–60 minutes depending on area."

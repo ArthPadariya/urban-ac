@@ -1,5 +1,7 @@
 import { LegalPage } from "../../components/LegalPage";
+import { SeoJsonLd } from "../../components/SeoJsonLd";
 import { business } from "../../data/site-data";
+import { buildBreadcrumbSchema, buildWebPageSchema, createStaticPageMetadata } from "../../lib/seo";
 
 const lines = [
   "Terms & Conditions ",
@@ -71,11 +73,30 @@ const lines = [
   
 ];
 
-export const metadata = {
-  title: `Privacy Policy | ${business.name}`,
-  description: `Read the privacy policy for ${business.name}.`
-};
+const title = `Privacy Policy | ${business.name}`;
+const description = `Read the privacy policy for ${business.name} and how service inquiry information is handled.`;
+
+export const metadata = createStaticPageMetadata({
+  title,
+  description,
+  path: "/privacy-policy",
+  keywords: [`${business.name} privacy policy`, `${business.name} data policy`]
+});
 
 export default function Page() {
-  return <LegalPage eyebrow="Legal" title="Privacy Policy" subtitle="Information related to privacy and website usage." lines={lines} />;
+  return (
+    <>
+      <SeoJsonLd
+        id="privacy-seo"
+        data={[
+          buildWebPageSchema({ title, description, path: "/privacy-policy" }),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Privacy Policy", path: "/privacy-policy" }
+          ])
+        ]}
+      />
+      <LegalPage eyebrow="Legal" title="Privacy Policy" subtitle="Information related to privacy and website usage." lines={lines} />
+    </>
+  );
 }

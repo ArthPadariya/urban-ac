@@ -1,5 +1,7 @@
 import { LegalPage } from "../../components/LegalPage";
+import { SeoJsonLd } from "../../components/SeoJsonLd";
 import { business } from "../../data/site-data";
+import { buildBreadcrumbSchema, buildWebPageSchema, createStaticPageMetadata } from "../../lib/seo";
 
 const lines = [
   "Refund Policy – Urban AC (UAC)",
@@ -35,11 +37,30 @@ const lines = [
   
 ];
 
-export const metadata = {
-  title: `Refund Policy | ${business.name}`,
-  description: `Read the refund policy for ${business.name}.`
-};
+const title = `Refund Policy | ${business.name}`;
+const description = `Read the refund and cancellation policy for ${business.name} AC services in ${business.city}.`;
+
+export const metadata = createStaticPageMetadata({
+  title,
+  description,
+  path: "/refund-policy",
+  keywords: [`${business.name} refund policy`, `${business.name} cancellation policy`]
+});
 
 export default function Page() {
-  return <LegalPage eyebrow="Legal" title="Refund Policy" subtitle="Important refund and cancellation information for Urban AC services." lines={lines} />;
+  return (
+    <>
+      <SeoJsonLd
+        id="refund-seo"
+        data={[
+          buildWebPageSchema({ title, description, path: "/refund-policy" }),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Refund Policy", path: "/refund-policy" }
+          ])
+        ]}
+      />
+      <LegalPage eyebrow="Legal" title="Refund Policy" subtitle="Important refund and cancellation information for Urban AC services." lines={lines} />
+    </>
+  );
 }

@@ -134,15 +134,21 @@ export function HomePage() {
               </a>
             </div>
             <div className="flex flex-wrap items-center gap-2.5">
-              {[" Same-day AC service in Vadodara", "Expert Split & Window AC Technicians", "Fast Cooling Issue Diagnosis & Repair", "Service coverage across 20+ areas"].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[#dfe7f5] bg-white px-4 py-2 text-sm font-medium text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+  {[
+    "Same-day AC service in Vadodara",
+    "Expert Split & Window AC Technicians",
+    "Fast Cooling Issue Diagnosis & Repair",
+    "Service coverage across 20+ areas"
+  ].map((item) => (
+    <span
+      key={item}
+      className="inline-flex items-center gap-2 rounded-full border border-[#dfe7f5] bg-white px-4 py-2 text-sm font-medium text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)]"
+    >
+      <span className="text-green-500 text-sm">✔</span>
+      {item}
+    </span>
+  ))}
+</div>
           </div>
 
           <div className="motion-safe:animate-[locationsFadeUp_0.82s_ease-out_both] [animation-delay:120ms]">
@@ -206,45 +212,52 @@ export function HomePage() {
       </section>
 
       <section id="areas" className="bg-white py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeader
-            eyebrow="Areas We Serve"
-            title="AC Service Coverage Across Vadodara Areas & Nearby Locations"
-            description="Start with the most searched local routes or move through the city pages to find the right area faster."
-          />
-          <div className="grid grid-cols-3 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {topLocations.map((slug, index) => {
-              const location = locations.find((item) => item.slug === slug);
-              return (
-                <Link
-                  key={slug}
-                  href={`/ac-service-${slug}`}
-                  className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-4 py-2 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]"
-                  style={{ animationDelay: `${index * 45}ms` }}
-                >
-                  <span className="flex items-center gap-1 whitespace-nowrap">
-                    📍 {location.name}
-                  </span>
-                </Link>
-              );
-            })}
-            {locations
-              .filter((location) => !topLocations.includes(location.slug))
-              .map((location, index) => (
-                <Link
-                  key={location.slug}
-                  href={`/ac-service-${location.slug}`}
-                  className="flex min-h-[44px] w-full items-center justify-center gap-1 whitespace-nowrap rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-4 py-2 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white motion-safe:animate-[locationsFadeUp_0.72s_ease-out_both]"
-                  style={{ animationDelay: `${(index + topLocations.length) * 45}ms` }}
-                >
-                  <span className="flex items-center gap-1 whitespace-nowrap">
-                    📍 {location.name}
-                  </span>
-                </Link>
-              ))}
-          </div>
-        </div>
-      </section>
+  <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <SectionHeader
+      eyebrow="Areas We Serve"
+      title="AC Service Coverage Across Vadodara Areas & Nearby Locations"
+      description="Start with the most searched local routes or move through the city pages to find the right area faster."
+    />
+
+    {/* ✅ FIXED GRID */}
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      
+      {/* TOP LOCATIONS */}
+      {topLocations.map((slug, index) => {
+        const location = locations.find((item) => item.slug === slug);
+
+        return (
+          <Link
+            key={slug}
+            href={`/ac-service-${slug}`}
+            className="flex min-h-[44px] w-full items-center justify-center gap-1 rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-4 py-2 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white break-words"
+            style={{ animationDelay: `${index * 45}ms` }}
+          >
+            <span className="flex items-center gap-1 text-center leading-tight">
+              📍 {location.name}
+            </span>
+          </Link>
+        );
+      })}
+
+      {/* OTHER LOCATIONS */}
+      {locations
+        .filter((location) => !topLocations.includes(location.slug))
+        .map((location, index) => (
+          <Link
+            key={location.slug}
+            href={`/ac-service-${location.slug}`}
+            className="flex min-h-[44px] w-full items-center justify-center gap-1 rounded-full border border-[#dce4f2] bg-[#F4F8FF] px-4 py-2 text-center text-sm font-semibold text-[#555] shadow-[0_8px_18px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white active:scale-[0.97] active:bg-[#0B0B0B] active:text-white break-words"
+            style={{ animationDelay: `${(index + topLocations.length) * 45}ms` }}
+          >
+            <span className="flex items-center gap-1 text-center leading-tight">
+              📍 {location.name}
+            </span>
+          </Link>
+        ))}
+    </div>
+  </div>
+</section>
 
       <section id="about" className="bg-[#F4F8FF] py-16 md:py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
@@ -349,7 +362,8 @@ export function HomePage() {
               </div>
               <img
                 src="/home-cta-1.png"
-                alt="AC technician"
+                alt={`Urban AC technician helping with AC service in ${business.city}`}
+                loading="lazy"
                 className="w-[180px] max-h-[220px] object-contain md:w-[220px]"
               />
             </div>

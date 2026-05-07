@@ -1,95 +1,51 @@
 import { notFound } from "next/navigation";
+import { SeoJsonLd } from "../../components/SeoJsonLd";
 import { ServiceAreaPage } from "../../components/ServiceAreaPage";
 import { ServicePageTemplate } from "../../components/ServicePageTemplate";
-import { business, locationMap, serviceMap } from "../../data/site-data";
+import {
+  business,
+  getAllValidSlugs,
+  getCityFaqs,
+  getMainServiceHref,
+  getSlugContent
+} from "../../data/site-data";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildLocalBusinessSchema,
+  buildServiceSchema,
+  buildWebPageSchema,
+  createServiceAreaMetadata,
+  createServiceCityMetadata,
+  getInterpolatedAreaServiceData
+} from "../../lib/seo";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
-const serviceSlugs = Object.keys(serviceMap).sort((a, b) => b.length - a.length);
-
-function resolveSlugParts(slug) {
-  const matchedService = serviceSlugs.find((service) => slug.startsWith(`${service}-`));
-
-  if (!matchedService) {
-    return null;
-  }
-
-  const area = slug.slice(matchedService.length + 1);
-
-  if (!area) {
-    return null;
-  }
-
-  if (area === "vadodara") {
-    return {
-      service: matchedService,
-      area
-    };
-  }
-
-  if (!locationMap[area]) {
-    return null;
-  }
-
-  return {
-    service: matchedService,
-    area
-  };
-}
 
 export function generateStaticParams() {
-  const services = Object.keys(serviceMap);
-  const areas = Object.keys(locationMap).filter((area) => area !== "vadodara");
-  const paths = [];
-
-  for (const service of services) {
-    for (const area of areas) {
-      paths.push({
-        slug: `${service}-${area}`
-      });
-    }
-  }
-
-  return paths;
+  return getAllValidSlugs();
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const resolved = resolveSlugParts(slug);
+  const resolved = getSlugContent(slug);
 
   if (!resolved) {
     return {
-      title: `Page not found | ${business.name}`
+      title: `Page not found | ${business.name}`,
+      robots: {
+        index: false,
+        follow: false
+      }
     };
   }
 
-  const { service, area } = resolved;
-
-  if (area === "vadodara") {
-    const cityService = serviceMap[service];
-
-    if (!cityService) {
-      return {
-        title: `Page not found | ${business.name}`
-      };
-    }
-
-    return {
-      title: `${cityService.name} in ${business.city} | Urban AC`,
-      description: `${cityService.shortDescription} Book ${cityService.sentence} in ${business.city} with ${business.name} for local support and direct call or WhatsApp booking.`
-    };
+  if (resolved.type === "service") {
+    return createServiceCityMetadata(resolved.service);
   }
 
-  if (!serviceMap[service] || !locationMap[area]) {
-    return {
-      title: `Page not found | ${business.name}`
-    };
-  }
-
-  return {
-    title: `${service.replaceAll("-", " ")} in ${area} | Urban AC`,
-    description: `Best ${service.replaceAll("-", " ")} service in ${area}. Fast, reliable AC services by Urban AC.`
-  };
+  return createServiceAreaMetadata(resolved.service, resolved.location);
 }
 
 export default async function SlugPage({ params }) {
@@ -99,27 +55,78 @@ export default async function SlugPage({ params }) {
     notFound();
   }
 
-  const resolved = resolveSlugParts(slug);
+  const resolved = getSlugContent(slug);
 
   if (!resolved) {
     notFound();
   }
 
-  const { service, area } = resolved;
+  if (resolved.type === "service") {
+    const { service } = resolved;
+    const path = getMainServiceHref(service.slug);
+    const metadata = createServiceCityMetadata(service);
+    const faqs = getCityFaqs(service);
 
-  if (area === "vadodara") {
-    const cityService = serviceMap[service];
-
-    if (!cityService) {
-      return null;
-    }
-
-    return <ServicePageTemplate service={cityService} />;
+    return (
+      <>
+        <SeoJsonLd
+          id={`${service.slug}-city-seo`}
+          data={[
+            buildWebPageSchema({
+              title: metadata.title,
+              description: metadata.description,
+              path
+            }),
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Services", path: "/services" },
+              { name: service.name, path }
+            ]),
+            buildLocalBusinessSchema({ path, description: metadata.description }),
+            buildServiceSchema({ service, path, description: metadata.description }),
+            buildFaqSchema(faqs)
+          ]}
+        />
+        <ServicePageTemplate service={service} />
+      </>
+    );
   }
 
-  if (!serviceMap[service] || !locationMap[area]) {
+  const { service, location } = resolved;
+  const content = getInterpolatedAreaServiceData(service, location);
+  const path = `/${slug}`;
+  const metadata = createServiceAreaMetadata(service, location);
+
+  if (!content) {
     notFound();
   }
 
-  return <ServiceAreaPage service={service} area={area} />;
+  return (
+    <>
+      <SeoJsonLd
+        id={`${service.slug}-${location.slug}-seo`}
+        data={[
+          buildWebPageSchema({
+            title: metadata.title,
+            description: metadata.description,
+            path
+          }),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: service.name, path: getMainServiceHref(service.slug) },
+            { name: location.name, path }
+          ]),
+          buildLocalBusinessSchema({ path, description: metadata.description, location }),
+          buildServiceSchema({
+            service,
+            path,
+            description: content.details?.paragraphs?.[0] ?? metadata.description,
+            location
+          }),
+          buildFaqSchema(content.faqs?.items ?? [])
+        ]}
+      />
+      <ServiceAreaPage service={service} area={location} />
+    </>
+  );
 }

@@ -391,7 +391,8 @@ export function ServiceAreaPage({ service, area }) {
               <div className="group relative overflow-hidden rounded-t-[20px] shadow-[0_-8px_60px_rgba(0,0,0,0.5)]">
                 <img
                   src="/tech11.jpeg"
-                  alt="AC technician installing air conditioner"
+                  alt={`${content.hero.title} support by Urban AC in ${resolvedArea.name}, ${business.city}`}
+                  loading="lazy"
                   className="h-auto w-full object-contain transition-transform duration-700 ease-out md:h-[clamp(340px,50vw,560px)] md:object-cover md:group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#22c55e]/25 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
@@ -428,7 +429,8 @@ export function ServiceAreaPage({ service, area }) {
               <div className="group overflow-hidden rounded-3xl shadow-[0_24px_60px_rgba(0,0,0,0.14)]">
                 <img
                   src="/tech10.jpeg"
-                  alt="Urban AC technician at work"
+                  alt={`${content.details.title} by Urban AC in ${resolvedArea.name}, ${business.city}`}
+                  loading="lazy"
                   className="h-auto w-full object-contain transition-transform duration-700 ease-out md:h-[400px] md:object-cover md:group-hover:scale-105"
                 />
               </div>
@@ -534,7 +536,8 @@ export function ServiceAreaPage({ service, area }) {
             <div className="group relative order-2 overflow-hidden rounded-3xl shadow-[0_24px_60px_rgba(0,0,0,0.13)] lg:order-1">
               <img
                 src="/tech12.jpeg"
-                alt="Professional AC installation quality"
+                alt={`${content.quality.title} by Urban AC in ${resolvedArea.name}, ${business.city}`}
+                loading="lazy"
                 className="h-auto w-full object-contain transition-transform duration-700 ease-out md:h-[500px] md:object-cover md:group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#22c55e]/20 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />

@@ -79,6 +79,9 @@ a {
   .service-hover-card {
     --service-card-hover-bg: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     --service-card-hover-shadow: 0 22px 48px rgba(37, 99, 235, 0.22);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
     @apply transition-all duration-300;
   }
 
@@ -182,6 +185,14 @@ a {
   button:hover {
     transform: none !important;
   }
+
+  .service-hover-card,
+  .service-hover-card * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
   
   .service-hover-card:not(.service-card-active):hover {
     background: inherit !important;
@@ -208,10 +219,26 @@ a {
     border-color: inherit !important;
     color: inherit !important;
     background: inherit !important;
+    opacity: 1 !important;
   }
 
   .service-hover-card:active .service-hover-card-overlay {
     opacity: 0 !important;
+  }
+
+  .service-hover-card:active h1,
+  .service-hover-card:active h2,
+  .service-hover-card:active h3,
+  .service-hover-card:active h4,
+  .service-hover-card:active h5,
+  .service-hover-card:active h6,
+  .service-hover-card:active p,
+  .service-hover-card:active span,
+  .service-hover-card:active a,
+  .service-hover-card:active li,
+  .service-hover-card:active div,
+  .service-hover-card:active svg {
+    opacity: 1 !important;
   }
 
   .service-card-active {

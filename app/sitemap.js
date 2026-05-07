@@ -1,19 +1,28 @@
-import { getAllValidSlugs, getSiteUrl } from "../data/site-data";
+import { getAllValidSlugs } from "../data/site-data";
+import { getAbsoluteUrl, getLocationPageEntries, getStaticPageEntries } from "../lib/seo";
 
 export default function sitemap() {
-  const baseUrl = getSiteUrl();
-  const pageUrls = getAllValidSlugs().map(({ slug }) => ({
-    url: `${baseUrl}/${slug}`,
+  const lastModified = new Date();
+  const serviceUrls = getAllValidSlugs().map(({ slug }) => ({
+    url: getAbsoluteUrl(`/${slug}`),
     changeFrequency: "weekly",
-    priority: slug.endsWith("-vadodara") ? 0.9 : 0.8
+    priority: slug.endsWith("-vadodara") ? 0.9 : 0.8,
+    lastModified
   }));
 
   return [
-    {
-      url: baseUrl,
-      changeFrequency: "weekly",
-      priority: 1
-    },
-    ...pageUrls
+    ...getStaticPageEntries().map((entry) => ({
+      url: getAbsoluteUrl(entry.path),
+      changeFrequency: entry.changeFrequency,
+      priority: entry.priority,
+      lastModified
+    })),
+    ...getLocationPageEntries().map((entry) => ({
+      url: getAbsoluteUrl(entry.path),
+      changeFrequency: entry.changeFrequency,
+      priority: entry.priority,
+      lastModified
+    })),
+    ...serviceUrls
   ];
 }
